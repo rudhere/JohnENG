@@ -103,29 +103,81 @@ footer{background:#0f172a;border-top:1px solid #1e293b;padding:1rem 1.5rem;text-
 .rpg{display:grid;grid-template-columns:1fr;gap:1.5rem}
 .rgg,.rgm{display:grid;grid-template-columns:1fr;gap:2rem}
 @media(min-width:1024px){.rpg{grid-template-columns:repeat(3,1fr)}.rgg{grid-template-columns:repeat(3,1fr)}.rgm{grid-template-columns:repeat(3,1fr)}}
+/* New styles for tabbed calculators */
+.calc-sub-nav{display:flex;flex-wrap:wrap;gap:.375rem;margin-bottom:1.5rem;border-bottom:1px solid #1e293b;padding-bottom:.75rem}
+.calc-sub-btn{background:transparent;color:#94a3b8;border:1px solid #1e293b;padding:.375rem .625rem;border-radius:.5rem;font-size:11px;font-weight:600;cursor:pointer;transition:all .15s}
+.calc-sub-btn:hover{color:#e2e8f0;background:rgba(30,41,59,.4)}
+.calc-sub-btn.active{background:rgba(6,182,212,.1);color:#22d3ee;border-color:rgba(6,182,212,.3)}
+.export-bar{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem;padding-top:1rem;border-top:1px solid #1e293b}
+.btn-export{background:#1e293b;color:#94a3b8;border:1px solid #334155;padding:.375rem .625rem;border-radius:.375rem;font-size:10px;font-weight:600;cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:.375rem}
+.btn-export:hover{background:#334155;color:#e2e8f0}
+.btn-export-cyan{background:rgba(6,182,212,.1);color:#22d3ee;border:1px solid rgba(6,182,212,.2)}
+.btn-export-cyan:hover{background:rgba(6,182,212,.2);color:#22d3ee}
+/* Cross ref section */
+.cross-ref{background:rgba(6,182,212,.05);border:1px solid rgba(6,182,212,.15);border-radius:.5rem;padding:.75rem;margin-top:1rem;font-size:11px}
+.cross-ref-title{font-size:10px;font-weight:700;color:#22d3ee;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.5rem;display:flex;align-items:center;gap:.375rem}
+.cross-grid{display:grid;grid-template-columns:1fr 1fr;gap:.375rem}
+@media(min-width:768px){.cross-grid{grid-template-columns:repeat(3,1fr)}}
+.cross-item{padding:.375rem;background:rgba(2,6,23,.4);border-radius:.25rem}
+.cross-item-label{color:#94a3b8;font-size:9px;display:block}
+.cross-item-value{font-weight:700;color:#f1f5f9;font-family:"Courier New",monospace}
+.cross-item-cost{color:#34d399;font-size:9px}
+/* IA Module */
+.ia-card{background:#0f172a;border:1px solid rgba(6,182,212,.2);border-radius:.75rem;padding:1.5rem}
+.ia-textarea{width:100%;min-height:120px;background:#020617;border:1px solid #1e293b;border-radius:.5rem;padding:.75rem;color:#e2e8f0;font-size:.75rem;font-family:"Courier New",monospace;resize:vertical}
+.ia-textarea:focus{border-color:#06b6d4;outline:none}
+.ia-suggestion{background:#020617;border:1px solid #1e293b;border-radius:.5rem;padding:1rem;margin-top:1rem;font-size:.75rem}
+.ia-suggestion h4{color:#22d3ee;font-size:.75rem;font-weight:700;margin-bottom:.5rem;border-bottom:1px solid #1e293b;padding-bottom:.375rem}
+.ia-suggestion p{margin:.25rem 0;color:#cbd5e1}
+.ia-suggestion strong{color:#f1f5f9}
+.ia-badge{display:inline-block;font-size:9px;background:rgba(6,182,212,.1);color:#22d3ee;padding:.125rem .375rem;border-radius:.25rem;font-weight:700;margin-left:.375rem}
+/* Arquitetura Recomendada */
+.arch-flow{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;justify-content:center;padding:1.5rem;background:#020617;border-radius:.75rem;border:1px solid #1e293b;margin:1rem 0}
+.arch-flow-box{background:#0f172a;border:1px solid rgba(6,182,212,.2);padding:.5rem 1rem;border-radius:.5rem;font-size:11px;font-weight:600;color:#22d3ee;text-align:center}
+.arch-flow-arrow{color:#475569;font-size:1.25rem}
+@media(max-width:600px){.arch-flow-arrow{display:none}.arch-flow{gap:1rem}}
+.db-table{width:100%;font-size:11px;border-collapse:collapse;margin-top:.5rem}
+.db-table th{background:#0f172a;color:#94a3b8;font-weight:700;border-bottom:1px solid #1e293b;padding:.375rem .5rem;text-align:left;font-size:10px;text-transform:uppercase}
+.db-table td{padding:.375rem .5rem;border-bottom:1px solid rgba(30,41,59,.5);color:#cbd5e1}
+.db-table tr:hover td{background:rgba(6,182,212,.03)}
+.db-section{margin-bottom:1.25rem}
+.db-section h4{font-size:.75rem;font-weight:700;color:#22d3ee;margin-bottom:.375rem;display:flex;align-items:center;gap:.375rem}
+/* Result box */
+.result-box{background:#020617;border:1px solid #1e293b;border-radius:.5rem;padding:.75rem;margin-top:.75rem}
+.result-row{display:flex;justify-content:space-between;padding:.25rem 0;font-size:.75rem;border-bottom:1px solid rgba(30,41,59,.5)}
+.result-row:last-child{border-bottom:none}
+.result-label{color:#94a3b8}
+.result-value{font-weight:700;color:#f1f5f9;font-family:"Courier New",monospace}
+.result-highlight{color:#22d3ee}
+.result-cost{color:#34d399}
+/* Cronograma */
+.cron-item{display:flex;justify-content:space-between;padding:.25rem .375rem;font-size:10px;border-bottom:1px solid rgba(30,41,59,.3)}
+.cron-item:last-child{border-bottom:none}
+.cron-label{color:#94a3b8}
+.cron-value{font-weight:600;color:#e2e8f0}
 </style>
 </head>
 <body>
 <div id="app"></div>
 <script>
 const S = {
-  activeTab: 'project',
-  isQuickEditOpen: false,
-  projectInfo: {
-    clientName: "Construtora Horizonte S/A",
-    clientPhone: "(11) 98765-4321",
-    clientEmail: "contato@horizonte.com.br",
-    projectName: "Residencial Bela Vista",
-    projectType: "Sobrado",
-    city: "São Paulo",
-    state: "SP",
-    standard: "NBR 6118",
-    responsible: "Eng. John Silva",
-    crea: "PR-987654/D",
-    art: "ART-2026-88120",
-    fckStandard: 30
+  activeTab:'project',
+  isQuickEditOpen:false,
+  projectInfo:{
+    clientName:"Construtora Horizonte S/A",
+    clientPhone:"(11) 98765-4321",
+    clientEmail:"contato@horizonte.com.br",
+    projectName:"Residencial Bela Vista",
+    projectType:"Sobrado",
+    city:"São Paulo",
+    state:"SP",
+    standard:"NBR 6118",
+    responsible:"Eng. John Silva",
+    crea:"PR-987654/D",
+    art:"ART-2026-88120",
+    fckStandard:30
   },
-  calcElements: [
+  calcElements:[
     {id:'sapata-1',name:"Sapata Isolada S1",type:"Sapata",concreteVol:1.80,steelWeight:45.5,note:"Dimensionada para carga de 450 kN"},
     {id:'pilar-1',name:"Pilar de Canto P1",type:"Pilar",concreteVol:0.72,steelWeight:38.0,note:"Seção 20x30, altura de 3.0m"},
     {id:'viga-1',name:"Viga Principal V1",type:"Viga",concreteVol:1.44,steelWeight:64.2,note:"Seção 15x40, vão de 6.0m"},
@@ -138,15 +190,79 @@ const S = {
   galpaoParams:{width:20,length:50,height:6,slope:15},
   fckChoice:30,
   masonryArea:120,
-  floorArea:80
+  floorArea:80,
+estruturaParams:{profile:'W150x18',length:6},
+  acoParams:{bitola:'10mm',length:100},
+  escavacaoParams:{comprimento:5,largura:4,profundidade:2.5},
+  coberturaParams:{areaProjetada:200,inclinacao:15},
+  pinturaParams:{tinta:'acrilica',area:100},
+  concretoParams:{tipo:'viga',comprimento:5,largura:0.20,altura:0.40,area:40,espessura:0.10,raio:0.5},
+  crossRef:{concreteVol:0},
+  calcSubTab:'concreto',
+  iaInput:'',
+  iaResult:null
 };
-
 const standardsList=[
   {code:"NBR 6118",desc:"Projeto de estruturas de concreto - Procedimento"},
   {code:"NBR 6122",desc:"Projeto e execução de fundações"},
   {code:"NBR 8800",desc:"Projeto de estruturas de aço e de estruturas mistas"}
 ];
-
+const perfisAco=[
+  {nome:'W150x18',peso:18.0},{nome:'W200x26',peso:26.0},{nome:'W250x32',peso:32.0},{nome:'W310x38',peso:38.0},{nome:'W360x44',peso:44.0},{nome:'W410x60',peso:60.0},{nome:'W460x74',peso:74.0},{nome:'W530x82',peso:82.0}
+];
+const bitolasAco=[
+  {nome:'5mm',peso:0.154},{nome:'6.3mm',peso:0.245},{nome:'8mm',peso:0.395},{nome:'10mm',peso:0.617},{nome:'12.5mm',peso:0.963},{nome:'16mm',peso:1.58},{nome:'20mm',peso:2.47},{nome:'25mm',peso:3.85}
+];
+const tintas=[
+  {nome:'Acrílica',chave:'acrilica',rendimento:16},{nome:'Epóxi',chave:'epoxi',rendimento:12},{nome:'Esmalte',chave:'esmalte',rendimento:14},{nome:'Verniz',chave:'verniz',rendimento:18}
+];
+const databaseMateriais={
+  concreto:{
+    materiais:[
+      {nome:'Cimento CP II (Saco 50kg)',unidade:'sc',preco:34.50},
+      {nome:'Areia Média Lavada',unidade:'m³',preco:110.00},
+      {nome:'Brita 1',unidade:'m³',preco:95.00},
+      {nome:'Água',unidade:'m³',preco:8.50}
+    ],
+    tracos:{20:{cimento:6.8,areia:0.55,brita:0.84,agua:180},25:{cimento:7.2,areia:0.53,brita:0.82,agua:185},30:{cimento:8.0,areia:0.52,brita:0.81,agua:190},35:{cimento:8.6,areia:0.49,brita:0.79,agua:195},40:{cimento:9.2,areia:0.47,brita:0.77,agua:200}},
+    ref:{cimento:350,areia:0.60,brita:0.80,custoCimento:0.69,custoAreia:110,custoBrita:95}
+  },
+  aco:{
+    tipos:[
+      {nome:'CA-50',descricao:'Aço para concreto armado - barras',preco:11.20,resistencia:500},
+      {nome:'CA-60',descricao:'Aço para concreto armado - fios',preco:13.50,resistencia:600}
+    ]
+  },
+  madeira:{
+    tipos:[
+      {nome:'Eucalipto Tratado',preco:2800,unidade:'m³'},
+      {nome:'Pinus',preco:1800,unidade:'m³'},
+      {nome:'Peroba Rosa',preco:4500,unidade:'m³'},
+      {nome:'Compensado Naval',preco:65,unidade:'m²'}
+    ]
+  },
+  aluminio:{
+    tipos:[
+      {nome:'Chapa de Alumínio 1/16"',preco:320,unidade:'m²'},
+      {nome:'Perfil de Alumínio 20x40',preco:45,unidade:'m'},
+      {nome:'Esquadria de Alumínio',preco:280,unidade:'m²'}
+    ]
+  },
+  pvc:{
+    tipos:[
+      {nome:'Tubo PVC Soldável 25mm',preco:8.50,unidade:'m'},
+      {nome:'Tubo PVC Esgoto 100mm',preco:22.00,unidade:'m'},
+      {nome:'Conexão PVC 90° 25mm',preco:2.50,unidade:'un'}
+    ]
+  },
+  vidro:{
+    tipos:[
+      {nome:'Vidro Temperado 8mm',preco:180,unidade:'m²'},
+      {nome:'Vidro Liso Comum 4mm',preco:65,unidade:'m²'},
+      {nome:'Vidro Duplo Acústico',preco:420,unidade:'m²'}
+    ]
+  }
+};
 function getGalpaoCalc(){
   const a=S.galpaoParams.width*S.galpaoParams.length;
   return {totalArea:a,steelWeight:(a*24.5).toFixed(0),roofingArea:(a*1.05).toFixed(1),paintingArea:(a*24.5*2.1*0.01).toFixed(1),boltsQty:Math.ceil(a*1.8)};
@@ -202,7 +318,57 @@ function getCosts(){
   ];
   return {items,grandTotal:items.reduce((a,i)=>a+(i.qty*i.price),0)};
 }
-
+function getEstruturaCalc(){
+  const p = perfisAco.find(x=>x.nome===S.estruturaParams.profile)||perfisAco[0];
+  const pesoTotal = p.peso * S.estruturaParams.length;
+  return {perfil:p.nome,pesoLinear:p.peso,comprimento:S.estruturaParams.length,pesoTotal:pesoTotal};
+}
+function getAcoCalc(){
+  const b = bitolasAco.find(x=>x.nome===S.acoParams.bitola)||bitolasAco[0];
+  const pesoTotal = b.peso * S.acoParams.length;
+  return {bitola:b.nome,pesoLinear:b.peso,comprimento:S.acoParams.length,pesoTotal:pesoTotal};
+}
+function getEscavacaoCalc(){
+  const vol = S.escavacaoParams.comprimento * S.escavacaoParams.largura * S.escavacaoParams.profundidade;
+  const volSolto = vol * 1.25;
+  return {volume:vol,volumeSolto:volSolto,empolamento:0.25};
+}
+function getCoberturaCalc(){
+  const rad = S.coberturaParams.inclinacao * Math.PI / 180;
+  const areaReal = S.coberturaParams.areaProjetada / Math.cos(rad);
+  return {areaProjetada:S.coberturaParams.areaProjetada,inclinacao:S.coberturaParams.inclinacao,areaReal:areaReal};
+}
+function getPinturaCalc(){
+  const t = tintas.find(x=>x.chave===S.pinturaParams.tinta)||tintas[0];
+  const litros = (S.pinturaParams.area / t.rendimento) * 2;
+  return {tinta:t.nome,rendimento:t.rendimento,area:S.pinturaParams.area,litros:litros};
+}
+function getConcretoCalc(){
+  const p = S.concretoParams;
+  let cv = 0, sw = 0, esc = 0;
+  if(p.tipo==='viga'){cv=p.comprimento*p.largura*p.altura;sw=cv*85;}
+  else if(p.tipo==='pilar'){cv=p.altura*p.largura*p.altura_d||p.comprimento*p.largura*p.altura;sw=cv*95;}
+  else if(p.tipo==='laje'){cv=p.area*p.espessura;sw=p.area*6.5;esc=Math.ceil(p.area*1.2);}
+  else if(p.tipo==='bloco'){cv=p.comprimento*p.largura*p.altura;sw=cv*90;}
+  else if(p.tipo==='cilindro'){cv=Math.PI*p.raio*p.raio*p.altura;sw=cv*85;}
+  return {concreteVol:cv,steelWeight:sw,escoras:esc};
+}
+function getCrossCalc(concreteVol){
+  const ref = databaseMateriais.concreto.ref;
+  const cimento = concreteVol * ref.cimento;
+  const areia = concreteVol * ref.areia;
+  const brita = concreteVol * ref.brita;
+  const aco = concreteVol * 100;
+  const custoCimento = cimento * ref.custoCimento;
+  const custoAreia = areia * ref.custoAreia;
+  const custoBrita = brita * ref.custoBrita;
+  const custoAco = aco * 11.20;
+  const custoTotal = custoCimento + custoAreia + custoBrita + custoAco;
+  const diasEscav = Math.max(1, Math.ceil(concreteVol / 1));
+  const diasArm = Math.max(1, Math.ceil(aco / 150));
+  const diasConc = Math.max(1, Math.ceil(concreteVol / 8));
+  return {cimento,areia,brita,aco,custoCimento,custoAreia,custoBrita,custoAco,custoTotal,diasEscav,diasArm,diasConc};
+}
 function icon(name){
   const paths={
     Calculator:'<path d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>',
@@ -213,15 +379,107 @@ function icon(name){
     ArrowRight:'<path d="M14 5l7 7m0 0l-7 7m7-7H3"/>',
     Plus:'<path d="M12 4v16m8-8H4"/>',
     Trash:'<path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>',
-    Edit:'<path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>'
+    Edit:'<path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>',
+    Weight:'<path d="M12 3c-1.5 0-3 .5-4 2l-3 5c-1 1.5-1 3.5 0 5l3 5c1 1.5 2.5 2 4 2s3-.5 4-2l3-5c1-1.5 1-3.5 0-5l-3-5c-1-1.5-2.5-2-4-2z"/><path d="M9 12h6"/>',
+    Shovel:'<path d="M3 21l6-6m2-2l-4-4 3-3 6 6-3 3-4-4zm0 0l6 6"/>',
+    Roof:'<path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 22V12h6v10"/>',
+    Paint:'<path d="M16 8l4-4m-2 2l-6 6m4-4l-4 4m0 0l-4 4a2 2 0 01-2.828 0l-.172-.172a2 2 0 010-2.828L10 10m0 0l4-4"/>',
+    Brain:'<path d="M12 2a4 4 0 00-4 4c0 1.5.8 2.8 2 3.5V12m0 2v2m0-12a4 4 0 014 4c0 1.5-.8 2.8-2 3.5"/><path d="M7 17.5A4.5 4.5 0 0011.5 22h1A4.5 4.5 0 0017 17.5"/>',
+    Copy:'<path d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>',
+    Download:'<path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4m7-7v8m0-8l-4 4m4-4l4 4"/>',
+    Map:'<path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/><circle cx="12" cy="12" r="1"/>',
+    Rebar:'<path d="M12 2v20M4 7h16M4 17h16"/>',
   };
-  const size=name==='ArrowRight'||name==='Plus'||name==='Trash'||name==='Edit'?'w-4 h-4':'w-5 h-5';
   return '<svg xmlns="http://www.w3.org/2000/svg" style="width:1em;height:1em" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">'+paths[name]+'</svg>';
 }
+function escHtml(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 
+function exportCopy(calcId, label){
+  const el = document.getElementById(calcId);
+  if(!el) return;
+  const txt = label + '\n' + Array.from(el.querySelectorAll('.result-row')).map(r=>r.textContent.trim()).join('\n');
+  navigator.clipboard.writeText(txt).then(()=>{
+    const btn = document.querySelector('[data-copy="'+calcId+'"]');
+    if(btn){btn.textContent='Copiado!';setTimeout(()=>{btn.innerHTML=icon('Copy')+' Copiar'},1500);}
+  }).catch(()=>{alert('Erro ao copiar. Selecione manualmente.')});
+}
+function exportCSV(calcId, filename){
+  const el = document.getElementById(calcId);
+  if(!el) return;
+  const rows = [['Item','Valor']];
+  el.querySelectorAll('.result-row').forEach(r=>{
+    const label = r.querySelector('.result-label')?.textContent||'';
+    const value = r.querySelector('.result-value')?.textContent||'';
+    rows.push([label,value]);
+  });
+  const csv = '\uFEFF' + rows.map(r=>r.map(c=>'"'+String(c).replace(/"/g,'""')+'"').join(',')).join('\n');
+  const blob = new Blob([csv],{type:'text/csv;charset=utf-8;'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = filename + '.csv';
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+function processIA(){
+  const raw = S.iaInput.trim();
+  if(!raw){S.iaResult={erro:'Insira um JSON válido.'};render();return;}
+  try{
+    const d = JSON.parse(raw);
+    const tipo = (d.tipo||'').toLowerCase();
+    if(tipo==='galpao'){
+      const area = d.area||1200, altura = d.altura||8;
+      const peso = area * 20;
+      const aco = area * 24;
+      S.iaResult = {
+        tipo:'Galpão Metálico',
+        sugestoes:[
+          {label:'Perfis Sugeridos',valor:'W410x60 (pilares), W360x44 (vigas), W250x32 (terças)'},
+          {label:'Peso Estrutural Estimado',valor:peso.toFixed(0)+' kg'},
+          {label:'Aço Principal (CA-50)',valor:aco.toFixed(0)+' kg'},
+          {label:'Custo Estimado Aço',valor:'R$ '+(aco*11.20).toLocaleString('pt-BR',{minimumFractionDigits:2})},
+          {label:'Fundação Estimada',valor:Math.ceil(area*0.05)+' m³ de concreto'},
+          {label:'Cobertura',valor:(area*1.05).toFixed(0)+' m² de telha metálica'},
+          {label:'Memorial Descritivo','valor':'Galpão metálico com '+(altura)+'m de pé direito, estrutura em aço CA-50, cobertura em telha metálica trapezoidal, fechamento lateral em telha ou alvenaria. Fundações em sapatas isoladas. Pintura epóxi para proteção anticorrosiva.'},
+          {label:'Cronograma Estimado',valor:Math.ceil(area/50)+' dias para estrutura, '+Math.ceil(area/80)+' dias para cobertura, '+Math.ceil(area/100)+' dias para fechamentos'}
+        ]
+      };
+    } else if(tipo==='residencial'){
+      const area = d.area||300;
+      const concreto = area * 0.12;
+      const aco = concreto * 100;
+      S.iaResult = {
+        tipo:'Residencial',
+        sugestoes:[
+          {label:'Volume de Concreto',valor:concreto.toFixed(1)+' m³'},
+          {label:'Aço CA-50',valor:aco.toFixed(0)+' kg'},
+          {label:'Custo Concreto',valor:'R$ '+(concreto*380).toLocaleString('pt-BR',{minimumFractionDigits:2})},
+          {label:'Custo Aço',valor:'R$ '+(aco*11.20).toLocaleString('pt-BR',{minimumFractionDigits:2})},
+          {label:'Cimento Necessário',valor:Math.ceil(concreto*7)+' sacos'},
+          {label:'Areia',valor:(concreto*0.60).toFixed(2)+' m³'},
+          {label:'Brita',valor:(concreto*0.80).toFixed(2)+' m³'},
+          {label:'Memorial Descritivo','valor':'Residência com '+(area)+'m² de área construída, estrutura em concreto armado com lajes, vigas e pilares. Alvenaria em blocos cerâmicos, cobertura em telha cerâmica. Acabamento com pintura acrílica interna/externa.'},
+          {label:'Cronograma Estimado',valor:Math.ceil(concreto/8)+' dias concretagem, 60 dias alvenaria, 45 dias acabamento'}
+        ]
+      };
+    } else {
+      S.iaResult = {
+        tipo: tipo || 'Personalizado',
+        sugestoes:[
+          {label:'Tipo',valor:d.tipo||'N/A'},
+          {label:'Área',valor:d.area?d.area+' m²':'N/A'},
+          {label:'Análise','valor':'JSON recebido com sucesso. Para sugestões detalhadas, utilize tipo "galpao" ou "residencial" com os parâmetros adequados.'}
+        ]
+      };
+    }
+  } catch(e){
+    S.iaResult = {erro:'JSON inválido: '+e.message};
+  }
+  render();
+}
 function render(){
   const agg=getAggregated(),mat=getMaterials(),costs=getCosts();
   const mix=getConcreteMix(),gc=getGalpaoCalc(),sc=getSapataCalc(),pc=getPilarCalc(),vc=getVigaCalc(),lc=getLajeCalc();
+  const ec=getEstruturaCalc(),ac=getAcoCalc(),esc=getEscavacaoCalc(),co=getCoberturaCalc(),pi=getPinturaCalc(),cc=getConcretoCalc();
 
   document.getElementById('app').innerHTML=`
 <div class="app">
@@ -236,9 +494,11 @@ function render(){
       <nav class="nav">
         <button class="nav-btn${S.activeTab==='project'?' active':''}" data-tab="project">${icon('Blueprint')} 1. Projeto & Elementos (${S.calcElements.length})</button>
         <button class="nav-btn${S.activeTab==='calculators'?' active':''}" data-tab="calculators">${icon('Calculator')} 2. Calculadoras Estruturais</button>
-        <button class="nav-btn${S.activeTab==='galpao'?' active':''}" data-tab="galpao">${icon('Warehouse')} 3. Projeto Galpão Metálico</button>
+        <button class="nav-btn${S.activeTab==='galpao'?' active':''}" data-tab="galpao">${icon('Warehouse')} 3. Galpão Metálico</button>
         <button class="nav-btn${S.activeTab==='mix'?' active':''}" data-tab="mix">${icon('Database')} 4. Traços & Acabamento</button>
-        <button class="nav-btn${S.activeTab==='pdf'?' active':''}" data-tab="pdf">${icon('PDF')} 5. Memorial & PDF Técnico</button>
+        <button class="nav-btn${S.activeTab==='ia'?' active':''}" data-tab="ia">${icon('Brain')} 5. IA de Engenharia</button>
+        <button class="nav-btn${S.activeTab==='arch'?' active':''}" data-tab="arch">${icon('Map')} 6. Arquitetura Recomendada</button>
+        <button class="nav-btn${S.activeTab==='pdf'?' active':''}" data-tab="pdf">${icon('PDF')} 7. Memorial & PDF</button>
       </nav>
     </div>
     <div class="compliance"><p>ENG - JOHN Compliance</p><p>NBR 6118 / NBR 6122 / NBR 8800</p></div>
@@ -264,7 +524,7 @@ function render(){
     <div class="edit-panel">
       <div class="edit-header">
         <h3>${icon('Edit')} Alterar Dados Cadastrais Manualmente (ENG - JOHN)</h3>
-        <button class="btn-close-panel" data-close-edit>Fechar Panel ✕</button>
+        <button class="btn-close-panel" data-close-edit>Fechar Painel ✕</button>
       </div>
       <div class="edit-grid">
         <div><label>Nome do Projeto/Obra</label><input type="text" data-field="projectName" value="${escHtml(S.projectInfo.projectName)}"></div>
@@ -280,9 +540,11 @@ function render(){
 
     <div class="content">
       ${S.activeTab==='project'?renderProject(agg,mat):''}
-      ${S.activeTab==='calculators'?renderCalculators(sc,pc,vc,lc):''}
+      ${S.activeTab==='calculators'?renderCalculatorsFull(cc,sc,pc,vc,lc,ec,ac,esc,co,pi):''}
       ${S.activeTab==='galpao'?renderGalpao(gc):''}
       ${S.activeTab==='mix'?renderMix(mix,mat):''}
+      ${S.activeTab==='ia'?renderIA():''}
+      ${S.activeTab==='arch'?renderArch():''}
       ${S.activeTab==='pdf'?renderPDF(agg,mat,costs):''}
     </div>
 
@@ -296,9 +558,6 @@ function render(){
 </div>`;
   bindEvents();
 }
-
-function escHtml(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
-
 function renderProject(agg,mat){
   return `
 <div style="display:flex;flex-direction:column;gap:1.5rem">
@@ -325,7 +584,7 @@ function renderProject(agg,mat){
           <span style="font-size:10px;color:#94a3b8;display:block;margin-top:.25rem">${escHtml(el.note)}</span>
         </div>
         <div style="display:flex;align-items:center;gap:1rem">
-          <div style="text-align:right;font-family:'Courier New',monospace"><span style="display:block;color:#22d3ee;font-weight:700">${el.concreteVol} m³ concrete</span><span style="font-size:10px;color:#a78bfa;display:block">${el.steelWeight} kg aço</span></div>
+          <div style="text-align:right;font-family:'Courier New',monospace"><span style="display:block;color:#22d3ee;font-weight:700">${el.concreteVol} m³ concreto</span><span style="font-size:10px;color:#a78bfa;display:block">${el.steelWeight} kg aço</span></div>
           <button class="btn-trash" data-del="${el.id}">${icon('Trash')}</button>
         </div>
       </div>`).join('')}</div>
@@ -338,77 +597,229 @@ function renderProject(agg,mat){
   </div>
 </div>`;
 }
-
-function renderCalculators(sc,pc,vc,lc){
-  const ns=S.calcElements.length+1;
+function renderCalculatorsFull(cc,sc,pc,vc,lc,ec,ac,esc,co,pi){
+  const sub = S.calcSubTab;
+  const ns = S.calcElements.length+1;
+  const subTabs = [
+    {key:'concreto',label:'Concreto'},
+    {key:'aco',label:'Aço'},
+    {key:'fundacao',label:'Fundação'},
+    {key:'estrutura',label:'Peso Estrutural'},
+    {key:'escavacao',label:'Escavação'},
+    {key:'cobertura',label:'Cobertura'},
+    {key:'pintura',label:'Pintura'}
+  ];
+  const subNav = subTabs.map(t=>'<button class="calc-sub-btn'+(sub===t.key?' active':'')+'" data-sub-tab="'+t.key+'">'+t.label+'</button>').join('');
   return `
-<div class="calc-grid">
-  <div class="card">
-    <div class="calc-header"><span class="calc-norm">NBR 6122</span><h3 style="font-size:.875rem;font-weight:800;color:#fff;margin-top:.25rem">Calculadora de Sapata Isolada</h3></div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem;font-size:.75rem">
-      <div><label class="calc-label">Carga de Projeto (kN)</label><input class="calc-input" type="number" data-sp-load value="${S.sapataParams.load}"></div>
-      <div><label class="calc-label">Tensão Admissível Solo (MPa)</label><input class="calc-input" type="number" step="0.05" data-sp-soil value="${S.sapataParams.soilCapacity}"></div>
-      <div><label class="calc-label">Comprimento da Base A (m)</label><input class="calc-input" type="number" step="0.1" data-sp-len value="${S.sapataParams.length}"></div>
-      <div><label class="calc-label">Largura da Base B (m)</label><input class="calc-input" type="number" step="0.1" data-sp-wid value="${S.sapataParams.width}"></div>
-    </div>
-    <div class="schematic-box" style="height:9rem;margin-top:.75rem">
-      <svg style="width:7rem;height:7rem;color:#06b6d4" viewBox="0 0 100 100" fill="none"><rect x="15" y="45" width="70" height="40" rx="2" fill="rgba(6,182,212,0.15)" stroke="#06b6d4" stroke-width="1.5"/><rect x="38" y="15" width="24" height="30" rx="1" fill="rgba(6,182,212,0.1)" stroke="#06b6d4" stroke-width="1.5" stroke-dasharray="2"/><line x1="20" y1="75" x2="80" y2="75" stroke="#a78bfa" stroke-width="2"/><line x1="20" y1="80" x2="80" y2="80" stroke="#a78bfa" stroke-width="2"/></svg>
-      <div class="schematic-vol">Vol: ${sc.concreteVol} m³</div>
-    </div>
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-top:.75rem">
-      <span class="calc-suggestion">Sugestão L1 x L2: ${sc.suggestedSide}m</span>
-      <button class="btn-add-pool" data-add="Sapata" data-name="Sapata Estrutural S${ns}" data-cv="${sc.concreteVol}" data-sw="${sc.steelWeight}">+ Adicionar e Cruzar Dados</button>
-    </div>
+<div class="card" style="padding:1.25rem">
+  <div class="calc-sub-nav">${subNav}</div>
+  ${sub==='concreto'?renderCalcConcreto(cc,ns):''}
+  ${sub==='aco'?renderCalcAco(ac,ns):''}
+  ${sub==='fundacao'?renderCalcFundacao(sc,ns):''}
+  ${sub==='estrutura'?renderCalcEstrutura(ec,ns):''}
+  ${sub==='escavacao'?renderCalcEscavacao(esc,ns):''}
+  ${sub==='cobertura'?renderCalcCobertura(co,ns):''}
+  ${sub==='pintura'?renderCalcPintura(pi,ns):''}
+</div>`;
+}
+function renderCalcConcreto(cc,ns){
+  const p = S.concretoParams;
+  const tipos = ['viga','pilar','laje','bloco','cilindro'];
+  const opts = tipos.map(t=>'<option value="'+t+'"'+(p.tipo===t?' selected':'')+'>'+(t==='viga'?'Viga':t==='pilar'?'Pilar':t==='laje'?'Laje':t==='bloco'?'Bloco':'Cilindro')+'</option>').join('');
+  const cv = cc.concreteVol || 0;
+  const cross = cv>0 ? getCrossCalc(cv) : null;
+  return `
+<div>
+  <div class="calc-header"><span class="calc-norm">NBR 6118</span><h3 style="font-size:.875rem;font-weight:800;color:#fff;margin-top:.25rem">Calculadora de Concreto Estrutural</h3></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem;font-size:.75rem">
+    <div><label class="calc-label">Tipo de Elemento</label><select class="select-field" data-cc-tipo>${opts}</select></div>
+    ${p.tipo==='laje'?'<div><label class="calc-label">Área (m²)</label><input class="calc-input" type="number" data-cc-area value="'+p.area+'"></div><div><label class="calc-label">Espessura (m)</label><input class="calc-input" type="number" step="0.02" data-cc-esp value="'+p.espessura+'"></div>':''}
+    ${p.tipo==='cilindro'?'<div><label class="calc-label">Raio (m)</label><input class="calc-input" type="number" step="0.05" data-cc-raio value="'+p.raio+'"></div><div><label class="calc-label">Altura (m)</label><input class="calc-input" type="number" step="0.1" data-cc-alt value="'+p.altura+'"></div>':''}
+    ${p.tipo!=='laje'&&p.tipo!=='cilindro'?'<div><label class="calc-label">Comprimento (m)</label><input class="calc-input" type="number" step="0.1" data-cc-comp value="'+p.comprimento+'"></div>':''}
+    ${p.tipo==='viga'||p.tipo==='bloco'?'<div><label class="calc-label">Largura (m)</label><input class="calc-input" type="number" step="0.05" data-cc-larg value="'+p.largura+'"></div>':''}
+    ${p.tipo==='viga'||p.tipo==='bloco'?'<div><label class="calc-label">Altura (m)</label><input class="calc-input" type="number" step="0.05" data-cc-alt value="'+p.altura+'"></div>':''}
+    ${p.tipo==='pilar'?'<div><label class="calc-label">Largura (m)</label><input class="calc-input" type="number" step="0.05" data-cc-larg value="'+p.largura+'"></div><div><label class="calc-label">Profundidade (m)</label><input class="calc-input" type="number" step="0.05" data-cc-alt value="'+p.altura+'"></div>':''}
   </div>
-
-  <div class="card">
-    <div class="calc-header"><span class="calc-norm">NBR 6118</span><h3 style="font-size:.875rem;font-weight:800;color:#fff;margin-top:.25rem">Calculadora de Pilar de Concreto</h3></div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem;font-size:.75rem">
-      <div><label class="calc-label">Altura do Pilar / Pé Direito (m)</label><input class="calc-input" type="number" step="0.5" data-pl-height value="${S.pilarParams.height}"></div>
-      <div><label class="calc-label">Seção Pilar - X (m)</label><input class="calc-input" type="number" step="0.05" data-pl-wid value="${S.pilarParams.width}"></div>
-      <div style="grid-column:span 2"><label class="calc-label">Seção Pilar - Y (m)</label><input class="calc-input" type="number" step="0.05" data-pl-depth value="${S.pilarParams.depth}"></div>
-    </div>
-    <div class="schematic-box" style="height:9rem;margin-top:.75rem">
-      <svg style="width:4rem;height:8rem;color:#06b6d4" viewBox="0 0 50 100" fill="none"><rect x="15" y="10" width="20" height="80" rx="1" fill="rgba(6,182,212,0.15)" stroke="#06b6d4" stroke-width="1"/><line x1="18" y1="10" x2="18" y2="90" stroke="#f43f5e" stroke-width="1.5"/><line x1="32" y1="10" x2="32" y2="90" stroke="#f43f5e" stroke-width="1.5"/></svg>
-      <div class="schematic-vol">Aço: ${pc.steelWeight} kg</div>
-    </div>
-    <div style="text-align:right;margin-top:.75rem">
-      <button class="btn-add-pool" data-add="Pilar" data-name="Pilar P${ns}" data-cv="${pc.concreteVol}" data-sw="${pc.steelWeight}">+ Adicionar e Cruzar Dados</button>
-    </div>
+  <div class="result-box" id="res-concreto">
+    <div class="result-row"><span class="result-label">Volume de Concreto</span><span class="result-value result-highlight">${cv.toFixed(4)} m³</span></div>
+    <div class="result-row"><span class="result-label">Peso de Aço Estimado</span><span class="result-value result-highlight">${cc.steelWeight.toFixed(1)} kg</span></div>
+    ${cc.escoras?('<div class="result-row"><span class="result-label">Escoras</span><span class="result-value">'+cc.escoras+' un</span></div>'):''}
   </div>
-
-  <div class="card">
-    <div class="calc-header"><span class="calc-norm">NBR 6118</span><h3 style="font-size:.875rem;font-weight:800;color:#fff;margin-top:.25rem">Calculadora de Viga</h3></div>
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.5rem;font-size:.75rem">
-      <div><label class="calc-label">Vão / Comp (m)</label><input class="calc-input" type="number" data-vg-len value="${S.vigaParams.length}"></div>
-      <div><label class="calc-label">Largura B (m)</label><input class="calc-input" type="number" step="0.05" data-vg-wid value="${S.vigaParams.width}"></div>
-      <div><label class="calc-label">Altura H (m)</label><input class="calc-input" type="number" step="0.05" data-vg-ht value="${S.vigaParams.height}"></div>
-    </div>
-    <div class="schematic-box" style="height:6rem;margin-top:.75rem">
-      <svg style="width:14rem;height:3rem;color:#06b6d4" viewBox="0 0 200 40" fill="none"><rect x="10" y="10" width="180" height="20" rx="1" fill="rgba(6,182,212,0.15)" stroke="#06b6d4" stroke-width="1"/><line x1="30" y1="10" x2="30" y2="30" stroke="#f43f5e" stroke-width="1" stroke-dasharray="1"/><line x1="60" y1="10" x2="60" y2="30" stroke="#f43f5e" stroke-width="1" stroke-dasharray="1"/><line x1="90" y1="10" x2="90" y2="30" stroke="#f43f5e" stroke-width="1" stroke-dasharray="1"/><line x1="120" y1="10" x2="120" y2="30" stroke="#f43f5e" stroke-width="1" stroke-dasharray="1"/><line x1="150" y1="10" x2="150" y2="30" stroke="#f43f5e" stroke-width="1" stroke-dasharray="1"/></svg>
-    </div>
-    <div style="text-align:right;margin-top:.75rem">
-      <button class="btn-add-pool" data-add="Viga" data-name="Viga V${ns}" data-cv="${vc.concreteVol}" data-sw="${vc.steelWeight}">+ Adicionar e Cruzar Dados</button>
-    </div>
+  ${cross?renderCrossRef(cross):''}
+  <div style="display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.75rem;align-items:center">
+    <button class="btn-add-pool" data-add="Concreto" data-name="Elemento de Concreto E"${ns} data-cv="${cv.toFixed(4)}" data-sw="${cc.steelWeight.toFixed(1)}">+ Adicionar e Cruzar Dados</button>
   </div>
-
-  <div class="card">
-    <div class="calc-header"><span class="calc-norm">NBR 6118</span><h3 style="font-size:.875rem;font-weight:800;color:#fff;margin-top:.25rem">Calculadora de Laje</h3></div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem;font-size:.75rem">
-      <div><label class="calc-label">Área Útil de Laje (m²)</label><input class="calc-input" type="number" data-lj-area value="${S.lajeParams.area}"></div>
-      <div><label class="calc-label">Espessura (m)</label><input class="calc-input" type="number" step="0.02" data-lj-thick value="${S.lajeParams.thickness}"></div>
-    </div>
-    <div style="background:#020617;height:6rem;border-radius:.5rem;border:1px solid rgba(30,41,59,.8);margin-top:.75rem;padding:.75rem;display:flex;flex-direction:column;justify-content:space-between;font-size:11px;color:#94a3b8">
-      <div>Cálculo Auxiliar de Escoramento (Cimbramento):</div>
-      <div style="display:flex;justify-content:space-between;font-family:'Courier New',monospace;color:#e2e8f0"><span>Escoras sugeridas (metálicas):</span><strong style="color:#22d3ee">${lc.escoras} unidades</strong></div>
-    </div>
-    <div style="text-align:right;margin-top:.75rem">
-      <button class="btn-add-pool" data-add="Laje" data-name="Laje L${ns}" data-cv="${lc.concreteVol}" data-sw="${lc.steelWeight}">+ Adicionar e Cruzar Dados</button>
-    </div>
-  </div>
+  <div class="export-bar">${exportButtonsHTML('res-concreto','concreto')}</div>
 </div>`;
 }
 
+function renderCalcAco(ac,ns){
+  const bitolaOpts = bitolasAco.map(b=>'<option value="'+b.nome+'"'+(S.acoParams.bitola===b.nome?' selected':'')+'>'+b.nome+' ('+b.peso+' kg/m)</option>').join('');
+  return `
+<div>
+  <div class="calc-header"><span class="calc-norm">NBR 6118</span><h3 style="font-size:.875rem;font-weight:800;color:#fff;margin-top:.25rem">Quantitativo de Aço (Bitolas)</h3></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem;font-size:.75rem">
+    <div><label class="calc-label">Bitola / Diâmetro</label><select class="select-field" data-ac-bitola>${bitolaOpts}</select></div>
+    <div><label class="calc-label">Comprimento Total (m)</label><input class="calc-input" type="number" data-ac-len value="${S.acoParams.length}"></div>
+  </div>
+  <div class="result-box" id="res-aco">
+    <div class="result-row"><span class="result-label">Bitola Selecionada</span><span class="result-value">${ac.bitola}</span></div>
+    <div class="result-row"><span class="result-label">Peso Linear</span><span class="result-value">${ac.pesoLinear.toFixed(3)} kg/m</span></div>
+    <div class="result-row"><span class="result-label">Comprimento</span><span class="result-value">${ac.comprimento} m</span></div>
+    <div class="result-row"><span class="result-label">Peso Total</span><span class="result-value result-highlight">${ac.pesoTotal.toFixed(2)} kg</span></div>
+    <div class="result-row"><span class="result-label">Custo Total (CA-50)</span><span class="result-value result-cost">R$ ${(ac.pesoTotal*11.20).toLocaleString('pt-BR',{minimumFractionDigits:2})}</span></div>
+  </div>
+  <div class="export-bar">${exportButtonsHTML('res-aco','quantitativo-aco')}</div>
+</div>`;
+}
+
+function renderCalcFundacao(sc,ns){
+  return `
+<div>
+  <div class="calc-header"><span class="calc-norm">NBR 6122</span><h3 style="font-size:.875rem;font-weight:800;color:#fff;margin-top:.25rem">Calculadora de Sapata Isolada (Fundação)</h3></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem;font-size:.75rem">
+    <div><label class="calc-label">Carga de Projeto (kN)</label><input class="calc-input" type="number" data-sp-load value="${S.sapataParams.load}"></div>
+    <div><label class="calc-label">Tensão Admissível Solo (MPa)</label><input class="calc-input" type="number" step="0.05" data-sp-soil value="${S.sapataParams.soilCapacity}"></div>
+    <div><label class="calc-label">Comprimento da Base A (m)</label><input class="calc-input" type="number" step="0.1" data-sp-len value="${S.sapataParams.length}"></div>
+    <div><label class="calc-label">Largura da Base B (m)</label><input class="calc-input" type="number" step="0.1" data-sp-wid value="${S.sapataParams.width}"></div>
+  </div>
+  <div class="schematic-box" style="height:9rem;margin-top:.75rem">
+    <svg style="width:7rem;height:7rem;color:#06b6d4" viewBox="0 0 100 100" fill="none"><rect x="15" y="45" width="70" height="40" rx="2" fill="rgba(6,182,212,0.15)" stroke="#06b6d4" stroke-width="1.5"/><rect x="38" y="15" width="24" height="30" rx="1" fill="rgba(6,182,212,0.1)" stroke="#06b6d4" stroke-width="1.5" stroke-dasharray="2"/><line x1="20" y1="75" x2="80" y2="75" stroke="#a78bfa" stroke-width="2"/><line x1="20" y1="80" x2="80" y2="80" stroke="#a78bfa" stroke-width="2"/></svg>
+    <div class="schematic-vol">Vol: ${sc.concreteVol} m³</div>
+  </div>
+  <div class="result-box" id="res-fundacao">
+    <div class="result-row"><span class="result-label">Área Requerida</span><span class="result-value">${sc.requiredArea} m²</span></div>
+    <div class="result-row"><span class="result-label">Sugestão L1 x L2</span><span class="result-value">${sc.suggestedSide}m</span></div>
+    <div class="result-row"><span class="result-label">Volume de Concreto</span><span class="result-value result-highlight">${sc.concreteVol} m³</span></div>
+    <div class="result-row"><span class="result-label">Peso de Aço</span><span class="result-value">${sc.steelWeight} kg</span></div>
+  </div>
+  ${parseFloat(sc.concreteVol)>0?renderCrossRef(getCrossCalc(parseFloat(sc.concreteVol))):''}
+  <div style="display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.75rem;align-items:center">
+    <button class="btn-add-pool" data-add="Sapata" data-name="Sapata Estrutural S${ns}" data-cv="${sc.concreteVol}" data-sw="${sc.steelWeight}">+ Adicionar e Cruzar Dados</button>
+  </div>
+  <div class="export-bar">${exportButtonsHTML('res-fundacao','fundacao')}</div>
+</div>`;
+}
+
+function renderCalcEstrutura(ec,ns){
+  const perfisOpts = perfisAco.map(p=>'<option value="'+p.nome+'"'+(S.estruturaParams.profile===p.nome?' selected':'')+'>'+p.nome+' ('+p.peso+' kg/m)</option>').join('');
+  return `
+<div>
+  <div class="calc-header"><span class="calc-norm">NBR 8800</span><h3 style="font-size:.875rem;font-weight:800;color:#fff;margin-top:.25rem">Peso Estrutural (Perfis de Aço)</h3></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem;font-size:.75rem">
+    <div><label class="calc-label">Perfil Estrutural</label><select class="select-field" data-et-perfil>${perfisOpts}</select></div>
+    <div><label class="calc-label">Comprimento (m)</label><input class="calc-input" type="number" data-et-len value="${S.estruturaParams.length}"></div>
+  </div>
+  <div style="background:#020617;border-radius:.5rem;border:1px solid #1e293b;height:8rem;margin-top:.75rem;display:flex;align-items:center;justify-content:center">
+    <svg style="width:12rem;height:4rem;color:#06b6d4" viewBox="0 0 200 60" fill="none">
+      <rect x="10" y="15" width="180" height="30" rx="2" fill="rgba(6,182,212,0.12)" stroke="#06b6d4" stroke-width="1.5"/>
+      <rect x="10" y="15" width="10" height="30" fill="rgba(6,182,212,0.2)" stroke="#06b6d4" stroke-width="1"/>
+      <rect x="180" y="15" width="10" height="30" fill="rgba(6,182,212,0.2)" stroke="#06b6d4" stroke-width="1"/>
+      <line x1="25" y1="40" x2="175" y2="40" stroke="#475569" stroke-width="1" stroke-dasharray="3"/>
+      <text x="100" y="52" text-anchor="middle" fill="#64748b" font-size="8">${escHtml(ec.perfil)}</text>
+    </svg>
+  </div>
+  <div class="result-box" id="res-estrutura">
+    <div class="result-row"><span class="result-label">Perfil</span><span class="result-value">${ec.perfil}</span></div>
+    <div class="result-row"><span class="result-label">Peso Linear</span><span class="result-value">${ec.pesoLinear} kg/m</span></div>
+    <div class="result-row"><span class="result-label">Comprimento</span><span class="result-value">${ec.comprimento} m</span></div>
+    <div class="result-row"><span class="result-label">Peso Total</span><span class="result-value result-highlight">${ec.pesoTotal.toFixed(2)} kg</span></div>
+    <div class="result-row"><span class="result-label">Custo Total (Aço)</span><span class="result-value result-cost">R$ ${(ec.pesoTotal*11.20).toLocaleString('pt-BR',{minimumFractionDigits:2})}</span></div>
+  </div>
+  <div class="export-bar">${exportButtonsHTML('res-estrutura','peso-estrutural')}</div>
+</div>`;
+}
+
+function renderCalcEscavacao(esc,ns){
+  return `
+<div>
+  <div class="calc-header"><span class="calc-norm">NBR 9061</span><h3 style="font-size:.875rem;font-weight:800;color:#fff;margin-top:.25rem">Volume de Escavação</h3></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.75rem;font-size:.75rem">
+    <div><label class="calc-label">Comprimento (m)</label><input class="calc-input" type="number" data-es-comp value="${S.escavacaoParams.comprimento}"></div>
+    <div><label class="calc-label">Largura (m)</label><input class="calc-input" type="number" data-es-larg value="${S.escavacaoParams.largura}"></div>
+    <div><label class="calc-label">Profundidade (m)</label><input class="calc-input" type="number" step="0.1" data-es-profund value="${S.escavacaoParams.profundidade}"></div>
+  </div>
+  <div class="result-box" id="res-escavacao">
+    <div class="result-row"><span class="result-label">Volume Natural (corte)</span><span class="result-value result-highlight">${esc.volume.toFixed(2)} m³</span></div>
+    <div class="result-row"><span class="result-label">Fator de Empolamento</span><span class="result-value">${(esc.empolamento*100)}%</span></div>
+    <div class="result-row"><span class="result-label">Volume Solto (transporte)</span><span class="result-value result-highlight">${esc.volumeSolto.toFixed(2)} m³</span></div>
+    <div class="result-row"><span class="result-label">Custo Transp. Estimado</span><span class="result-value result-cost">R$ ${(esc.volumeSolto*28).toLocaleString('pt-BR',{minimumFractionDigits:2})}</span></div>
+  </div>
+  <div class="export-bar">${exportButtonsHTML('res-escavacao','escavacao')}</div>
+</div>`;
+}
+
+function renderCalcCobertura(co,ns){
+  return `
+<div>
+  <div class="calc-header"><span class="calc-norm">NBR 15575</span><h3 style="font-size:.875rem;font-weight:800;color:#fff;margin-top:.25rem">Cobertura (Telhado)</h3></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem;font-size:.75rem">
+    <div><label class="calc-label">Área Projetada (m²)</label><input class="calc-input" type="number" data-cb-area value="${S.coberturaParams.areaProjetada}"></div>
+    <div><label class="calc-label">Inclinação (graus)</label><input class="calc-input" type="number" step="1" data-cb-inclinacao value="${S.coberturaParams.inclinacao}"></div>
+  </div>
+  <div style="background:#020617;border-radius:.5rem;border:1px solid #1e293b;height:8rem;margin-top:.75rem;display:flex;align-items:center;justify-content:center">
+    <svg style="width:12rem;height:5rem;color:#06b6d4" viewBox="0 0 200 80" fill="none">
+      <polygon points="10,70 100,15 190,70" fill="rgba(6,182,212,0.12)" stroke="#06b6d4" stroke-width="1.5"/>
+      <line x1="100" y1="15" x2="100" y2="70" stroke="#475569" stroke-width="1" stroke-dasharray="2"/>
+      <line x1="10" y1="70" x2="190" y2="70" stroke="#a78bfa" stroke-width="1.5"/>
+      <text x="55" y="55" fill="#64748b" font-size="7">α=${co.inclinacao}°</text>
+    </svg>
+  </div>
+  <div class="result-box" id="res-cobertura">
+    <div class="result-row"><span class="result-label">Área Projetada</span><span class="result-value">${co.areaProjetada} m²</span></div>
+    <div class="result-row"><span class="result-label">Inclinação</span><span class="result-value">${co.inclinacao}°</span></div>
+    <div class="result-row"><span class="result-label">Área Real de Cobertura</span><span class="result-value result-highlight">${co.areaReal.toFixed(2)} m²</span></div>
+    <div class="result-row"><span class="result-label">Telhas Estimadas</span><span class="result-value">${Math.ceil(co.areaReal*10)} un</span></div>
+  </div>
+  <div class="export-bar">${exportButtonsHTML('res-cobertura','cobertura')}</div>
+</div>`;
+}
+
+function renderCalcPintura(pi,ns){
+  const tintaOpts = tintas.map(t=>'<option value="'+t.chave+'"'+(S.pinturaParams.tinta===t.chave?' selected':'')+'>'+t.nome+' ('+t.rendimento+' m²/L)</option>').join('');
+  return `
+<div>
+  <div class="calc-header"><span class="calc-norm">NBR 15079</span><h3 style="font-size:.875rem;font-weight:800;color:#fff;margin-top:.25rem">Cálculo de Pintura</h3></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem;font-size:.75rem">
+    <div><label class="calc-label">Tipo de Tinta</label><select class="select-field" data-pn-tinta>${tintaOpts}</select></div>
+    <div><label class="calc-label">Área a Pintar (m²)</label><input class="calc-input" type="number" data-pn-area value="${S.pinturaParams.area}"></div>
+  </div>
+  <div class="result-box" id="res-pintura">
+    <div class="result-row"><span class="result-label">Tinta</span><span class="result-value">${pi.tinta}</span></div>
+    <div class="result-row"><span class="result-label">Rendimento</span><span class="result-value">${pi.rendimento} m²/L</span></div>
+    <div class="result-row"><span class="result-label">Área Total (2 demãos)</span><span class="result-value">${(pi.area*2).toFixed(1)} m²</span></div>
+    <div class="result-row"><span class="result-label">Litros Necessários</span><span class="result-value result-highlight">${pi.litros.toFixed(2)} L</span></div>
+    <div class="result-row"><span class="result-label">Latas 18L</span><span class="result-value">${Math.ceil(pi.litros/18)} un</span></div>
+  </div>
+  <div class="export-bar">${exportButtonsHTML('res-pintura','pintura')}</div>
+</div>`;
+}
+function exportButtonsHTML(calcId, filename){
+  return '<button class="btn-export btn-export-cyan" data-copy="'+calcId+'">'+icon('Copy')+' Copiar</button>'+
+    '<button class="btn-export" data-csv="'+calcId+'" data-filename="'+filename+'">'+icon('Download')+' Exportar CSV</button>'+
+    '<button class="btn-export" data-pdf="'+calcId+'">'+icon('PDF')+' Imprimir</button>';
+}
+function renderCrossRef(cross){
+  return `<div class="cross-ref">
+    <div class="cross-ref-title">${icon('Database')} Cruzamento de Materiais (Referência)</div>
+    <div class="cross-grid">
+      <div class="cross-item"><span class="cross-item-label">Cimento</span><span class="cross-item-value">${cross.cimento.toFixed(0)} kg</span><span class="cross-item-cost">R$ ${cross.custoCimento.toLocaleString('pt-BR',{minimumFractionDigits:2})}</span></div>
+      <div class="cross-item"><span class="cross-item-label">Areia</span><span class="cross-item-value">${cross.areia.toFixed(2)} m³</span><span class="cross-item-cost">R$ ${cross.custoAreia.toLocaleString('pt-BR',{minimumFractionDigits:2})}</span></div>
+      <div class="cross-item"><span class="cross-item-label">Brita</span><span class="cross-item-value">${cross.brita.toFixed(2)} m³</span><span class="cross-item-cost">R$ ${cross.custoBrita.toLocaleString('pt-BR',{minimumFractionDigits:2})}</span></div>
+      <div class="cross-item"><span class="cross-item-label">Aço (CA-50)</span><span class="cross-item-value">${cross.aco.toFixed(0)} kg</span><span class="cross-item-cost">R$ ${cross.custoAco.toLocaleString('pt-BR',{minimumFractionDigits:2})}</span></div>
+      <div class="cross-item" style="grid-column:span 2"><span class="cross-item-label">Custo Total Insumos</span><span class="cross-item-value" style="color:#34d399">R$ ${cross.custoTotal.toLocaleString('pt-BR',{minimumFractionDigits:2})}</span></div>
+    </div>
+    <div style="margin-top:.5rem;padding-top:.5rem;border-top:1px solid rgba(6,182,212,.1)">
+      <div class="cross-ref-title" style="font-size:9px">${icon('Clock')} Cronograma Estimado</div>
+      <div class="cross-grid" style="grid-template-columns:repeat(4,1fr)">
+        <div class="cron-item"><span class="cron-label">Escavação</span><span class="cron-value">${cross.diasEscav} dias</span></div>
+        <div class="cron-item"><span class="cron-label">Armadura</span><span class="cron-value">${cross.diasArm} dias</span></div>
+        <div class="cron-item"><span class="cron-label">Concretagem</span><span class="cron-value">${cross.diasConc} dias</span></div>
+        <div class="cron-item"><span class="cron-label">Cura</span><span class="cron-value">7 dias</span></div>
+      </div>
+    </div>
+  </div>`;
+}
 function renderGalpao(gc){
   return `
 <div class="card" style="padding:1.5rem">
@@ -431,17 +842,17 @@ function renderGalpao(gc){
     </div>
     <div style="background:#020617;padding:1.25rem;border-radius:.75rem;border:1px solid #1e293b;font-size:.75rem">
       <span style="font-size:10px;text-transform:uppercase;font-weight:700;color:#94a3b8;display:block;margin-bottom:.75rem">Resultados da Estrutura</span>
-      <div style="display:flex;flex-direction:column;gap:.5rem;font-family:'Courier New',monospace">
+      <div id="res-galpao" style="display:flex;flex-direction:column;gap:.5rem;font-family:'Courier New',monospace">
         <div style="display:flex;justify-content:space-between;border-bottom:1px solid #0f172a;padding-bottom:.375rem"><span style="color:#94a3b8">Peso Estimado Estrutural:</span><strong style="color:#22d3ee">${gc.steelWeight} kg</strong></div>
         <div style="display:flex;justify-content:space-between;border-bottom:1px solid #0f172a;padding-bottom:.375rem"><span style="color:#94a3b8">Área Real de Cobertura:</span><strong style="color:#e2e8f0">${gc.roofingArea} m²</strong></div>
         <div style="display:flex;justify-content:space-between;border-bottom:1px solid #0f172a;padding-bottom:.375rem"><span style="color:#94a3b8">Insumo de Pintura:</span><strong style="color:#e2e8f0">${gc.paintingArea} m²</strong></div>
         <div style="display:flex;justify-content:space-between"><span style="color:#94a3b8">Quantidade de Parafusos:</span><strong style="color:#e2e8f0">${gc.boltsQty} un</strong></div>
       </div>
+      <div class="export-bar" style="border-top-color:#0f172a">${exportButtonsHTML('res-galpao','galpao-metalico')}</div>
     </div>
   </div>
 </div>`;
 }
-
 function renderMix(mix,mat){
   return `
 <div class="card" style="padding:1.5rem">
@@ -473,18 +884,18 @@ function renderMix(mix,mat){
     </div>
     <div style="background:#020617;padding:1.25rem;border-radius:.75rem;border:1px solid #1e293b;font-size:.75rem">
       <span style="font-size:10px;text-transform:uppercase;font-weight:700;color:#94a3b8;display:block;margin-bottom:.75rem">Total Insumos Agrupados (Cruzamento)</span>
-      <div style="display:flex;flex-direction:column;gap:.375rem;font-family:'Courier New',monospace;font-size:11px">
+      <div id="res-materiais" style="display:flex;flex-direction:column;gap:.375rem;font-family:'Courier New',monospace;font-size:11px">
         <div style="display:flex;justify-content:space-between;border-bottom:1px solid #0f172a;padding-bottom:.25rem"><span>Cimento (Sacos 50kg):</span><strong style="color:#fff">${mat.cementSacks} sc</strong></div>
         <div style="display:flex;justify-content:space-between;border-bottom:1px solid #0f172a;padding-bottom:.25rem"><span>Areia Média:</span><strong style="color:#fff">${mat.sandM3.toFixed(2)} m³</strong></div>
         <div style="display:flex;justify-content:space-between;border-bottom:1px solid #0f172a;padding-bottom:.25rem"><span>Pedra / Brita 1:</span><strong style="color:#fff">${mat.gravelM3.toFixed(2)} m³</strong></div>
         <div style="display:flex;justify-content:space-between;border-bottom:1px solid #0f172a;padding-bottom:.25rem"><span>Tijolos de Vedação:</span><strong style="color:#fb923c">${mat.brickQty} un</strong></div>
         <div style="display:flex;justify-content:space-between"><span>Argamassa Colante (ACIII):</span><strong style="color:#fff">${Math.ceil(S.floorArea*5)} kg</strong></div>
       </div>
+      <div class="export-bar" style="border-top-color:#0f172a">${exportButtonsHTML('res-materiais','insumos')}</div>
     </div>
   </div>
 </div>`;
 }
-
 function renderPDF(agg,mat,costs){
   return `
 <div class="pdf-doc">
@@ -542,21 +953,172 @@ function renderPDF(agg,mat,costs){
   </div>
 </div>`;
 }
+function renderIA(){
+  const ir = S.iaResult;
+  return `
+<div class="ia-card">
+  <div style="border-bottom:1px solid #1e293b;padding-bottom:1rem;margin-bottom:1.5rem">
+    <h2 style="font-size:1.125rem;font-weight:700;color:#fff;display:flex;align-items:center;gap:.5rem">${icon('Brain')} Assistente IA de Engenharia</h2>
+    <p style="font-size:.75rem;color:#94a3b8;margin-top:.25rem">Forneça dados em JSON para obter sugestões estruturais, quantitativos, custos e cronograma.</p>
+  </div>
+  <div style="margin-bottom:1rem">
+    <label style="display:block;color:#94a3b8;margin-bottom:.375rem;font-size:.75rem;font-weight:600">Insira o JSON com parâmetros do projeto:</label>
+    <div style="background:#020617;border:1px solid #1e293b;border-radius:.5rem;padding:.5rem .75rem;margin-bottom:.5rem;font-size:10px;font-family:"Courier New",monospace;color:#64748b">
+      Ex: {"tipo":"galpao","area":1200,"altura":8,"estrutura":"metalica"} ou {"tipo":"residencial","area":300}
+    </div>
+    <textarea class="ia-textarea" data-ia-input placeholder='{"tipo":"galpao","area":1200,"altura":8,"estrutura":"metalica"}'>${escHtml(S.iaInput)}</textarea>
+  </div>
+  <button class="btn-cyan" data-ia-process style="font-size:.75rem;padding:.5rem 1.25rem">${icon('Brain')} Processar e Sugerir</button>
+  ${ir?(!ir.erro?renderIASuggestions(ir):'<div style="color:#f87171;margin-top:1rem;font-size:.75rem">'+icon('Alert')+' '+escHtml(ir.erro)+'</div>'):''}
+</div>`;
+}
 
+function renderIASuggestions(ir){
+  return `<div class="ia-suggestion">
+    <h4>${icon('Brain')} Sugestões para: ${escHtml(ir.tipo)} <span class="ia-badge">IA GENERATIVA</span></h4>
+    ${ir.sugestoes.map(s=>'<p><strong>'+escHtml(s.label)+':</strong> '+escHtml(s.valor)+'</p>').join('')}
+    <div class="export-bar" style="margin-top:.75rem">
+      <button class="btn-export btn-export-cyan" data-copy-ia>${icon('Copy')} Copiar Sugestões</button>
+      <button class="btn-export" data-pdf-ia>${icon('PDF')} Imprimir</button>
+    </div>
+  </div>`;
+}
+function renderArch(){
+  const catKeys = Object.keys(databaseMateriais);
+  const catNames = {concreto:'Concreto',aco:'Aço',madeira:'Madeira',aluminio:'Alumínio',pvc:'PVC',vidro:'Vidro'};
+  const dbTables = catKeys.map(k=>{
+    const db = databaseMateriais[k];
+    if(k==='concreto'){
+      const rows = db.materiais.map(m=>'<tr><td>'+escHtml(m.nome)+'</td><td>'+m.unidade+'</td><td>R$ '+m.preco.toFixed(2)+'</td></tr>').join('');
+      return '<div class="db-section"><h4>'+icon('Database')+' '+catNames[k]+'</h4><table class="db-table"><thead><tr><th>Material</th><th>Un</th><th>Preço</th></tr></thead><tbody>'+rows+'</tbody></table></div>';
+    }
+    const rows = db.tipos.map(t=>{
+      if(k==='aco') return '<tr><td>'+escHtml(t.nome)+'</td><td>'+escHtml(t.descricao)+'</td><td>fyk='+t.resistencia+' MPa</td><td>R$ '+t.preco.toFixed(2)+'</td></tr>';
+      return '<tr><td>'+escHtml(t.nome)+'</td><td>'+t.unidade+'</td><td>R$ '+t.preco.toFixed(2)+'</td></tr>';
+    }).join('');
+    const cols = k==='aco'?'<th>Nome</th><th>Descrição</th><th>Resistência</th><th>Preço</th>':'<th>Nome</th><th>Un</th><th>Preço</th>';
+    return '<div class="db-section"><h4>'+icon('Database')+' '+catNames[k]+'</h4><table class="db-table"><thead><tr>'+cols+'</tr></thead><tbody>'+rows+'</tbody></table></div>';
+  }).join('');
+
+  const calcList = ['1. Concreto Estrutural (vigas, pilares, lajes, blocos)','2. Quantitativo de Aço (bitolas)','3. Fundação (sapata isolada)','4. Peso Estrutural (perfis de aço)','5. Volume de Escavação (com empolamento)','6. Cobertura (telhado)','7. Cálculo de Pintura'].map(c=>'<li style="margin-bottom:.25rem;font-size:.75rem;color:#cbd5e1">'+c+'</li>').join('');
+
+  return `
+<div class="card" style="padding:1.5rem">
+  <div style="border-bottom:1px solid #1e293b;padding-bottom:1rem;margin-bottom:1.5rem">
+    <h2 style="font-size:1.125rem;font-weight:700;color:#fff;display:flex;align-items:center;gap:.5rem">${icon('Map')} Arquitetura Recomendada — Plataforma de Engenharia</h2>
+    <p style="font-size:.75rem;color:#94a3b8;margin-top:.25rem">Visão completa da plataforma integrada de cálculos, banco de dados, IA e exportação.</p>
+  </div>
+
+  <div class="engine-box" style="margin-bottom:1.5rem">
+    <div class="engine-glow"></div>
+    <h4 class="engine-title">Fluxo de Processamento de Dados</h4>
+    <div class="arch-flow">
+      <div class="arch-flow-box">${icon('Database')} Dados</div>
+      <span class="arch-flow-arrow">→</span>
+      <div class="arch-flow-box">${icon('Calculator')} Fórmula</div>
+      <span class="arch-flow-arrow">→</span>
+      <div class="arch-flow-box">${icon('Blueprint')} Resultado</div>
+      <span class="arch-flow-arrow">→</span>
+      <div class="arch-flow-box" style="border-color:rgba(52,211,153,.3);color:#34d399">R$ Custos</div>
+      <span class="arch-flow-arrow">→</span>
+      <div class="arch-flow-box" style="border-color:rgba(167,139,250,.3);color:#a78bfa">${icon('PDF')} Relatório</div>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr;gap:1.5rem">
+    <div>
+      <h3 style="font-size:.875rem;font-weight:700;color:#22d3ee;margin-bottom:1rem">${icon('Calculator')} Calculadoras Disponíveis (7)</h3>
+      <ul style="list-style:none;padding:0">${calcList}</ul>
+    </div>
+
+    <div>
+      <h3 style="font-size:.875rem;font-weight:700;color:#22d3ee;margin-bottom:1rem">${icon('Database')} Banco de Dados de Materiais</h3>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;font-size:.75rem">${dbTables}</div>
+    </div>
+
+    <div class="engine-box">
+      <div class="engine-glow"></div>
+      <h4 class="engine-title">Sistema de Cruzamento de Dados</h4>
+      <p class="engine-text">Quando um volume de concreto é calculado, o sistema automaticamente consulta o banco de dados de materiais para estimar os insumos necessários:</p>
+      <ul style="font-size:.75rem;color:#cbd5e1;margin-top:.5rem;line-height:1.8">
+        <li><strong style="color:#fff">Cimento:</strong> 350 kg/m³ × volume de concreto</li>
+        <li><strong style="color:#fff">Areia:</strong> 0.60 m³/m³ × volume de concreto</li>
+        <li><strong style="color:#fff">Brita:</strong> 0.80 m³/m³ × volume de concreto</li>
+        <li><strong style="color:#fff">Custos:</strong> Cimento R$ 0,69/kg | Areia R$ 110/m³ | Brita R$ 95/m³ | Aço R$ 11,20/kg</li>
+        <li><strong style="color:#fff">Cronograma:</strong> Escavação 1m³/dia | Armadura 150kg/dia | Concretagem 8m³/dia | Cura 7 dias</li>
+      </ul>
+    </div>
+
+    <div class="engine-box">
+      <div class="engine-glow"></div>
+      <h4 class="engine-title">Módulo IA de Engenharia</h4>
+      <p class="engine-text">O módulo de IA processa JSON com parâmetros do projeto e gera sugestões automáticas de:</p>
+      <ul style="font-size:.75rem;color:#cbd5e1;margin-top:.5rem;line-height:1.8">
+        <li>Perfis estruturais recomendados</li>
+        <li>Peso estimado e quantidade de aço</li>
+        <li>Custo aproximado dos materiais</li>
+        <li>Memorial descritivo automático</li>
+        <li>Cronograma físico da obra</li>
+      </ul>
+    </div>
+
+    <div class="engine-box">
+      <div class="engine-glow"></div>
+      <h4 class="engine-title">Exportação de Dados</h4>
+      <p class="engine-text">Todas as calculadoras possuem botões de exportação integrados:</p>
+      <ul style="font-size:.75rem;color:#cbd5e1;margin-top:.5rem;line-height:1.8">
+        <li><strong style="color:#fff">Copiar:</strong> Copia resultados para a área de transferência</li>
+        <li><strong style="color:#fff">CSV/Excel:</strong> Download com BOM para Excel compatível</li>
+        <li><strong style="color:#fff">PDF/Imprimir:</strong> Impressão do relatório técnico completo</li>
+      </ul>
+    </div>
+  </div>
+</div>`;
+}
 function bindEvents(){
+  // Nav tabs
   document.querySelectorAll('[data-tab]').forEach(b=>b.addEventListener('click',()=>{S.activeTab=b.dataset.tab;render();}));
+
+  // Edit panel
   document.querySelectorAll('[data-edit-toggle]').forEach(b=>b.addEventListener('click',()=>{S.isQuickEditOpen=!S.isQuickEditOpen;render();}));
   document.querySelectorAll('[data-close-edit],[data-save-edit]').forEach(b=>b.addEventListener('click',()=>{
     document.querySelectorAll('[data-field]').forEach(inp=>{S.projectInfo[inp.dataset.field]=inp.value;});
     S.isQuickEditOpen=false;render();
   }));
+
+  // Delete element
   document.querySelectorAll('[data-del]').forEach(b=>b.addEventListener('click',()=>{S.calcElements=S.calcElements.filter(e=>e.id!==b.dataset.del);render();}));
+
+  // Add to pool
   document.querySelectorAll('[data-add]').forEach(b=>b.addEventListener('click',()=>{
     S.calcElements.push({id:b.dataset.add.toLowerCase()+'-'+Date.now(),name:b.dataset.name,type:b.dataset.add,concreteVol:parseFloat(b.dataset.cv),steelWeight:parseFloat(b.dataset.sw),note:'Adicionado via Módulo Calculadoras ('+b.dataset.add+')'});
     S.activeTab='project';render();
   }));
 
-  // live calc inputs
+  // Calculator sub-tabs
+  document.querySelectorAll('[data-sub-tab]').forEach(b=>b.addEventListener('click',()=>{S.calcSubTab=b.dataset.subTab;render();}));
+
+  // Export: Copy
+  document.querySelectorAll('[data-copy]').forEach(b=>b.addEventListener('click',()=>exportCopy(b.dataset.copy,b.dataset.copy)));
+  document.querySelectorAll('[data-copy-ia]').forEach(b=>b.addEventListener('click',()=>{
+    const el = document.querySelector('.ia-suggestion');
+    if(!el) return;
+    const txt = Array.from(el.querySelectorAll('p')).map(p=>p.textContent.trim()).join('\n');
+    navigator.clipboard.writeText(txt).then(()=>{b.textContent='Copiado!';setTimeout(()=>{b.innerHTML=icon('Copy')+' Copiar Sugestões'},1500);}).catch(()=>{});
+  }));
+
+  // Export: CSV
+  document.querySelectorAll('[data-csv]').forEach(b=>b.addEventListener('click',()=>exportCSV(b.dataset.csv,b.dataset.filename||'dados')));
+
+  // Export: PDF/Print
+  document.querySelectorAll('[data-pdf]').forEach(b=>b.addEventListener('click',()=>window.print()));
+  document.querySelectorAll('[data-pdf-ia]').forEach(b=>b.addEventListener('click',()=>window.print()));
+
+  // IA
+  document.querySelectorAll('[data-ia-input]').forEach(el=>el.addEventListener('input',function(){S.iaInput=this.value;}));
+  document.querySelectorAll('[data-ia-process]').forEach(b=>b.addEventListener('click',processIA));
+
+  // Live calc inputs - existing
   document.querySelectorAll('[data-sp-load]').forEach(el=>el.addEventListener('input',function(){S.sapataParams.load=parseFloat(this.value)||0;render();}));
   document.querySelectorAll('[data-sp-soil]').forEach(el=>el.addEventListener('input',function(){S.sapataParams.soilCapacity=parseFloat(this.value)||0;render();}));
   document.querySelectorAll('[data-sp-len]').forEach(el=>el.addEventListener('input',function(){S.sapataParams.length=parseFloat(this.value)||0;render();}));
@@ -578,7 +1140,27 @@ function bindEvents(){
   document.querySelectorAll('[data-floor]').forEach(el=>el.addEventListener('input',function(){S.floorArea=parseFloat(this.value)||0;render();}));
   document.querySelectorAll('[data-nbr-select]').forEach(el=>el.addEventListener('change',function(){S.projectInfo.standard=this.value;render();}));
 
-  // edit panel fields live
+  // Live calc inputs - new calculators
+  document.querySelectorAll('[data-cc-tipo]').forEach(el=>el.addEventListener('change',function(){S.concretoParams.tipo=this.value;render();}));
+  document.querySelectorAll('[data-cc-comp]').forEach(el=>el.addEventListener('input',function(){S.concretoParams.comprimento=parseFloat(this.value)||0;render();}));
+  document.querySelectorAll('[data-cc-larg]').forEach(el=>el.addEventListener('input',function(){S.concretoParams.largura=parseFloat(this.value)||0;render();}));
+  document.querySelectorAll('[data-cc-alt]').forEach(el=>el.addEventListener('input',function(){S.concretoParams.altura=parseFloat(this.value)||0;render();}));
+  document.querySelectorAll('[data-cc-area]').forEach(el=>el.addEventListener('input',function(){S.concretoParams.area=parseFloat(this.value)||0;render();}));
+  document.querySelectorAll('[data-cc-esp]').forEach(el=>el.addEventListener('input',function(){S.concretoParams.espessura=parseFloat(this.value)||0;render();}));
+  document.querySelectorAll('[data-cc-raio]').forEach(el=>el.addEventListener('input',function(){S.concretoParams.raio=parseFloat(this.value)||0;render();}));
+  document.querySelectorAll('[data-ac-bitola]').forEach(el=>el.addEventListener('change',function(){S.acoParams.bitola=this.value;render();}));
+  document.querySelectorAll('[data-ac-len]').forEach(el=>el.addEventListener('input',function(){S.acoParams.length=parseFloat(this.value)||0;render();}));
+  document.querySelectorAll('[data-et-perfil]').forEach(el=>el.addEventListener('change',function(){S.estruturaParams.profile=this.value;render();}));
+  document.querySelectorAll('[data-et-len]').forEach(el=>el.addEventListener('input',function(){S.estruturaParams.length=parseFloat(this.value)||0;render();}));
+  document.querySelectorAll('[data-es-comp]').forEach(el=>el.addEventListener('input',function(){S.escavacaoParams.comprimento=parseFloat(this.value)||0;render();}));
+  document.querySelectorAll('[data-es-larg]').forEach(el=>el.addEventListener('input',function(){S.escavacaoParams.largura=parseFloat(this.value)||0;render();}));
+  document.querySelectorAll('[data-es-profund]').forEach(el=>el.addEventListener('input',function(){S.escavacaoParams.profundidade=parseFloat(this.value)||0;render();}));
+  document.querySelectorAll('[data-cb-area]').forEach(el=>el.addEventListener('input',function(){S.coberturaParams.areaProjetada=parseFloat(this.value)||0;render();}));
+  document.querySelectorAll('[data-cb-inclinacao]').forEach(el=>el.addEventListener('input',function(){S.coberturaParams.inclinacao=parseFloat(this.value)||0;render();}));
+  document.querySelectorAll('[data-pn-tinta]').forEach(el=>el.addEventListener('change',function(){S.pinturaParams.tinta=this.value;render();}));
+  document.querySelectorAll('[data-pn-area]').forEach(el=>el.addEventListener('input',function(){S.pinturaParams.area=parseFloat(this.value)||0;render();}));
+
+  // Edit panel fields live
   document.querySelectorAll('.edit-grid [data-field]').forEach(inp=>inp.addEventListener('input',function(){S.projectInfo[this.dataset.field]=this.value;}));
 }
 
