@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ENG - JOHN PRO | Plataforma de Engenharia</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:system-ui,-apple-system,sans-serif;background:#020617;color:#f1f5f9;min-height:100vh}
+::selection{background:#06b6d4;color:#020617}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:#1e293b}
+::-webkit-scrollbar-thumb{background:#475569;border-radius:3px}
+.app{display:flex;flex-direction:column;min-height:100vh}
+@media(min-width:768px){.app{flex-direction:row}}
+.sidebar{width:100%;background:#0f172a;border-right:1px solid #1e293b;display:flex;flex-direction:column;justify-content:space-between}
+@media(min-width:768px){.sidebar{width:16rem}}
+.sidebar-logo{padding:1.25rem;border-bottom:1px solid #1e293b;display:flex;align-items:center;justify-content:space-between}
+.logo-mark{background:#06b6d4;color:#020617;padding:.375rem;border-radius:.5rem;font-weight:900;font-size:.875rem;letter-spacing:.1em;display:flex;align-items:center;gap:2px}
+.logo-mark-inner{background:#020617;color:#22d3ee;padding:0 .25rem;border-radius:.25rem;font-size:.75rem}
+.logo-text{font-weight:800;color:#fff;letter-spacing:-.025em;font-size:1.125rem}
+.nav{padding:1rem;display:flex;flex-direction:column;gap:.25rem}
+.nav-btn{width:100%;display:flex;align-items:center;gap:.75rem;padding:.625rem .75rem;border-radius:.75rem;font-size:.75rem;font-weight:600;border:none;cursor:pointer;background:transparent;color:#94a3b8;transition:all .15s;text-align:left}
+.nav-btn:hover{color:#e2e8f0;background:rgba(30,41,59,.4)}
+.nav-btn.active{background:rgba(6,182,212,.1);color:#22d3ee;border:1px solid rgba(6,182,212,.2)}
+.compliance{padding:1rem;border-top:1px solid #1e293b;background:rgba(2,6,23,.4);font-size:10px;color:#64748b}
+.compliance p:first-child{font-weight:700;color:#94a3b8}
+.main{flex:1;display:flex;flex-direction:column;overflow-x:hidden;position:relative}
+.topbar{background:rgba(15,23,42,.6);border-bottom:1px solid #1e293b;padding:1rem 1.5rem;display:flex;flex-direction:column;gap:1rem}
+@media(min-width:1024px){.topbar{flex-direction:row;align-items:center;justify-content:space-between}}
+.topbar-left{flex:1}
+.topbar-title{display:flex;align-items:center;gap:.75rem}
+.topbar-title h2{font-size:1.25rem;font-weight:800;color:#fff}
+.topbar-title h2 span{color:#22d3ee;font-size:.875rem;font-weight:500}
+.btn-edit-project{background:#1e293b;border:1px solid #334155;color:#e2e8f0;font-size:.75rem;padding:.25rem .625rem;border-radius:.5rem;cursor:pointer;display:flex;align-items:center;gap:.375rem;transition:all .15s}
+.btn-edit-project:hover{background:#334155}
+.topbar-sub{font-size:.75rem;color:#94a3b8;margin-top:.25rem}
+.topbar-sub span{color:#e2e8f0}
+.topbar-kpis{display:flex;flex-wrap:wrap;gap:.75rem}
+.kpi-card{background:#0f172a;border:1px solid #1e293b;padding:.375rem .75rem;border-radius:.5rem;text-align:center;min-width:120px}
+.kpi-label{display:block;font-size:9px;color:#94a3b8;text-transform:uppercase;font-weight:700}
+.kpi-value{font-size:.875rem;font-weight:800;font-family:"Courier New",monospace}
+.kpi-cyan{color:#22d3ee}
+.kpi-purple{color:#a78bfa}
+.kpi-green{color:#34d399}
+.edit-panel{background:rgba(15,23,42,.95);border-bottom:1px solid #1e293b;padding:1.5rem;position:absolute;top:4rem;left:0;right:0;z-index:50;backdrop-filter:blur(8px);box-shadow:0 25px 50px rgba(0,0,0,.5)}
+.edit-header{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #1e293b;padding-bottom:.75rem}
+.edit-header h3{font-size:.875rem;font-weight:700;color:#22d3ee;display:flex;align-items:center;gap:.5rem}
+.btn-close-panel{background:transparent;color:#94a3b8;border:none;cursor:pointer;font-size:.75rem;padding:.25rem .5rem;border-radius:.25rem}
+.btn-close-panel:hover{color:#fff}
+.edit-grid{display:grid;grid-template-columns:1fr;gap:1rem;margin-top:1rem;font-size:.75rem}
+@media(min-width:768px){.edit-grid{grid-template-columns:repeat(4,1fr)}}
+.edit-grid label{display:block;color:#94a3b8;margin-bottom:.25rem;font-weight:600}
+.edit-grid input{width:100%;background:#020617;border:1px solid #1e293b;border-radius:.25rem;padding:.5rem;color:#f1f5f9;font-weight:500}
+.edit-grid input:focus{border-color:#06b6d4;outline:none}
+.btn-save{width:100%;background:#06b6d4;color:#020617;font-weight:700;border:none;padding:.5rem;border-radius:.5rem;font-size:.75rem;cursor:pointer}
+.btn-save:hover{background:#0891b2}
+.content{padding:1.5rem;max-width:1280px;width:100%;margin:0 auto;flex:1}
+.card{background:#0f172a;border:1px solid #1e293b;border-radius:.75rem;padding:1.25rem}
+.card-title{font-size:.875rem;font-weight:800;color:#fff;border-bottom:1px solid #1e293b;padding-bottom:.5rem;margin-bottom:1rem}
+.card-title-flex{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #1e293b;padding-bottom:.5rem;margin-bottom:1rem}
+.badge-crossed{font-size:10px;background:rgba(6,182,212,.2);color:#22d3ee;padding:.125rem .625rem;border-radius:9999px;font-weight:700}
+.input-field{width:100%;background:#020617;border:1px solid #1e293b;border-radius:.5rem;padding:.5rem;color:#e2e8f0;font-size:.75rem}
+.input-field:focus{border-color:#06b6d4;outline:none}
+.input-mono{font-family:"Courier New",monospace}
+.select-field{width:100%;background:#020617;border:1px solid #1e293b;border-radius:.5rem;padding:.5rem;color:#cbd5e1;font-size:.75rem}
+.select-field:focus{outline:none;border-color:#06b6d4}
+.btn-cyan{background:#06b6d4;color:#020617;font-weight:700;border:none;padding:.375rem .75rem;border-radius:.25rem;font-size:11px;cursor:pointer;transition:background .15s}
+.btn-cyan:hover{background:#0891b2}
+.btn-cyan-sm{background:#06b6d4;color:#020617;font-weight:700;border:none;padding:.25rem .5rem;border-radius:.25rem;font-size:11px;cursor:pointer}
+.schematic-box{background:#020617;border-radius:.5rem;border:1px solid #1e293b;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.schematic-label{position:absolute;left:.75rem;top:.75rem;background:#0f172a;border:1px solid #1e293b;font-size:9px;color:#94a3b8;padding:.125rem .375rem;border-radius:.25rem;font-family:"Courier New",monospace}
+.schematic-vol{position:absolute;right:.75rem;bottom:.75rem;font-size:10px;color:#64748b;font-family:"Courier New",monospace}
+.element-card{background:#020617;padding:.875rem;border-radius:.5rem;border:1px solid rgba(30,41,59,.8);display:flex;align-items:center;justify-content:space-between;gap:1rem;font-size:.75rem}
+.element-tag{font-size:9px;background:#1e293b;color:#94a3b8;padding:.125rem .375rem;border-radius:.25rem;text-transform:uppercase;font-weight:600}
+.btn-trash{color:#475569;background:none;border:none;cursor:pointer;padding:.25rem;transition:color .15s}
+.btn-trash:hover{color:#f87171}
+.engine-box{background:#0f172a;border:1px solid rgba(6,182,212,.2);border-radius:.75rem;padding:1.5rem;position:relative;overflow:hidden}
+.engine-glow{position:absolute;right:0;top:0;width:6rem;height:6rem;background:linear-gradient(135deg,rgba(6,182,212,.05),transparent);border-radius:0 0 0 9999px}
+.engine-title{font-size:.75rem;font-weight:700;color:#22d3ee;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.375rem}
+.engine-text{font-size:.75rem;color:#cbd5e1;line-height:1.625;max-width:56rem}
+.calc-grid{display:grid;grid-template-columns:1fr;gap:2rem}
+@media(min-width:1024px){.calc-grid{grid-template-columns:repeat(2,1fr)}}
+.calc-header{padding-bottom:.5rem;border-bottom:1px solid #1e293b;margin-bottom:1rem}
+.calc-norm{font-size:10px;background:rgba(6,182,212,.1);border:1px solid #155e75;color:#22d3ee;padding:.125rem .5rem;border-radius:.25rem;font-weight:700;text-transform:uppercase}
+.calc-label{display:block;color:#94a3b8;margin-bottom:.25rem}
+.calc-input{width:100%;background:#020617;border:1px solid #1e293b;border-radius:.25rem;padding:.375rem;font-family:"Courier New",monospace;color:#e2e8f0}
+.calc-input:focus{border-color:#06b6d4;outline:none}
+.calc-suggestion{font-size:11px;color:#94a3b8}
+.btn-add-pool{background:#06b6d4;color:#020617;font-weight:700;border:none;padding:.375rem .75rem;border-radius:.25rem;font-size:11px;cursor:pointer;transition:background .15s}
+.btn-add-pool:hover{background:#0891b2}
+footer{background:#0f172a;border-top:1px solid #1e293b;padding:1rem 1.5rem;text-align:center;font-size:.75rem;color:#64748b}
+.footer-inner{max-width:1280px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:1rem}
+@media(min-width:768px){.footer-inner{flex-direction:row;justify-content:space-between}}
+.footer-meta{display:flex;gap:1rem;font-size:10px}
+@media print{.no-print{display:none!important}}
+.pdf-doc{background:#fff;color:#0f172a;padding:2rem;border-radius:1rem;max-width:56rem;margin:0 auto;box-shadow:0 25px 50px rgba(0,0,0,.5);border:1px solid #e2e8f0}
+.pdf-table{width:100%;text-align:left;font-size:.75rem;border-collapse:collapse}
+.pdf-table th{background:#f1f5f9;color:#475569;font-weight:700;border-bottom:1px solid #cbd5e1;padding:.5rem}
+.pdf-table td{padding:.5rem;border-bottom:1px solid #e2e8f0}
+.pdf-table tr:last-child td{border-bottom:2px solid #0f172a;font-weight:700}
+.element-list{display:flex;flex-direction:column;gap:.75rem;max-height:18rem;overflow-y:auto;padding-right:.25rem}
+.rpg{display:grid;grid-template-columns:1fr;gap:1.5rem}
+.rgg,.rgm{display:grid;grid-template-columns:1fr;gap:2rem}
+@media(min-width:1024px){.rpg{grid-template-columns:repeat(3,1fr)}.rgg{grid-template-columns:repeat(3,1fr)}.rgm{grid-template-columns:repeat(3,1fr)}}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+const S = {
+  activeTab: 'project',
+  isQuickEditOpen: false,
+  projectInfo: {
+    clientName: "Construtora Horizonte S/A",
+    clientPhone: "(11) 98765-4321",
+    clientEmail: "contato@horizonte.com.br",
+    projectName: "Residencial Bela Vista",
+    projectType: "Sobrado",
+    city: "São Paulo",
+    state: "SP",
+    standard: "NBR 6118",
+    responsible: "Eng. John Silva",
+    crea: "PR-987654/D",
+    art: "ART-2026-88120",
+    fckStandard: 30
+  },
+  calcElements: [
+    {id:'sapata-1',name:"Sapata Isolada S1",type:"Sapata",concreteVol:1.80,steelWeight:45.5,note:"Dimensionada para carga de 450 kN"},
+    {id:'pilar-1',name:"Pilar de Canto P1",type:"Pilar",concreteVol:0.72,steelWeight:38.0,note:"Seção 20x30, altura de 3.0m"},
+    {id:'viga-1',name:"Viga Principal V1",type:"Viga",concreteVol:1.44,steelWeight:64.2,note:"Seção 15x40, vão de 6.0m"},
+    {id:'laje-1',name:"Laje de Forro L1",type:"Laje",concreteVol:4.80,steelWeight:92.0,note:"Área 48 m², espessura 10cm"}
+  ],
+  sapataParams:{load:500,soilCapacity:0.2,length:1.5,width:1.5,height:0.4},
+  pilarParams:{height:3.0,width:0.20,depth:0.30,load:800},
+  vigaParams:{length:5.0,width:0.15,height:0.40},
+  lajeParams:{area:40,thickness:0.10},
+  galpaoParams:{width:20,length:50,height:6,slope:15},
+  fckChoice:30,
+  masonryArea:120,
+  floorArea:80
+};
+
+const standardsList=[
+  {code:"NBR 6118",desc:"Projeto de estruturas de concreto - Procedimento"},
+  {code:"NBR 6122",desc:"Projeto e execução de fundações"},
+  {code:"NBR 8800",desc:"Projeto de estruturas de aço e de estruturas mistas"}
+];
+
+function getGalpaoCalc(){
+  const a=S.galpaoParams.width*S.galpaoParams.length;
+  return {totalArea:a,steelWeight:(a*24.5).toFixed(0),roofingArea:(a*1.05).toFixed(1),paintingArea:(a*24.5*2.1*0.01).toFixed(1),boltsQty:Math.ceil(a*1.8)};
+}
+function getSapataCalc(){
+  const ra=(S.sapataParams.load/1000)/(S.sapataParams.soilCapacity*10),cs=Math.sqrt(ra),cv=S.sapataParams.length*S.sapataParams.width*S.sapataParams.height;
+  return {requiredArea:ra.toFixed(2),suggestedSide:cs.toFixed(2),concreteVol:cv.toFixed(2),steelWeight:(cv*75).toFixed(1)};
+}
+function getPilarCalc(){
+  const cv=S.pilarParams.height*S.pilarParams.width*S.pilarParams.depth;
+  return {concreteVol:cv.toFixed(2),steelWeight:(cv*95).toFixed(1)};
+}
+function getVigaCalc(){
+  const cv=S.vigaParams.length*S.vigaParams.width*S.vigaParams.height;
+  return {concreteVol:cv.toFixed(2),steelWeight:(cv*85).toFixed(1)};
+}
+function getLajeCalc(){
+  const cv=S.lajeParams.area*S.lajeParams.thickness;
+  return {concreteVol:cv.toFixed(2),steelWeight:(S.lajeParams.area*6.5).toFixed(1),escoras:Math.ceil(S.lajeParams.area*1.2)};
+}
+function getConcreteMix(){
+  switch(parseInt(S.fckChoice)){
+    case 20:return {cement:6.8,sand:0.55,gravel:0.84,water:180};
+    case 25:return {cement:7.2,sand:0.53,gravel:0.82,water:185};
+    case 30:return {cement:8.0,sand:0.52,gravel:0.81,water:190};
+    case 35:return {cement:8.6,sand:0.49,gravel:0.79,water:195};
+    case 40:return {cement:9.2,sand:0.47,gravel:0.77,water:200};
+    default:return {cement:8.0,sand:0.52,gravel:0.81,water:190};
+  }
+}
+function getAggregated(){
+  const tc=S.calcElements.reduce((a,e)=>a+parseFloat(e.concreteVol),0);
+  const ts=S.calcElements.reduce((a,e)=>a+parseFloat(e.steelWeight),0);
+  return {totalConcrete:tc,totalSteel:ts};
+}
+function getMaterials(){
+  const agg=getAggregated(),mix=getConcreteMix(),v=agg.totalConcrete;
+  return {
+    cementSacks:Math.ceil(v*mix.cement),sandM3:v*mix.sand,gravelM3:v*mix.gravel,waterLiters:v*mix.water,
+    brickQty:Math.ceil(S.masonryArea*25),masonryMortarVol:S.masonryArea*0.025,masonryCementSacks:Math.ceil(S.masonryArea*0.025*7.5),
+    mortarBedVol:S.floorArea*0.03,flooringTileM2:S.floorArea*1.05,groutKg:S.floorArea*0.4
+  };
+}
+function getCosts(){
+  const mat=getMaterials(),agg=getAggregated();
+  const items=[
+    {id:"c1",item:"Cimento CP II (Saco 50kg)",qty:mat.cementSacks,unit:"sc",price:34.50},
+    {id:"c2",item:"Areia Média Lavada",qty:parseFloat(mat.sandM3.toFixed(2)),unit:"m³",price:110.00},
+    {id:"c3",item:"Brita 1",qty:parseFloat(mat.gravelM3.toFixed(2)),unit:"m³",price:95.00},
+    {id:"c4",item:"Aço CA-50 Cortado e Dobrado",qty:parseFloat(agg.totalSteel.toFixed(1)),unit:"kg",price:11.20},
+    {id:"c5",item:"Bloco Cerâmico 9x19x19cm",qty:mat.brickQty,unit:"un",price:1.25},
+    {id:"c6",item:"Porcelanato Retificado de Alta Tráfego",qty:parseFloat(mat.flooringTileM2.toFixed(1)),unit:"m²",price:72.00}
+  ];
+  return {items,grandTotal:items.reduce((a,i)=>a+(i.qty*i.price),0)};
+}
+
+function icon(name){
+  const paths={
+    Calculator:'<path d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>',
+    Warehouse:'<path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>',
+    Database:'<path d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"/>',
+    Blueprint:'<path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>',
+    PDF:'<path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>',
+    ArrowRight:'<path d="M14 5l7 7m0 0l-7 7m7-7H3"/>',
+    Plus:'<path d="M12 4v16m8-8H4"/>',
+    Trash:'<path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>',
+    Edit:'<path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>'
+  };
+  const size=name==='ArrowRight'||name==='Plus'||name==='Trash'||name==='Edit'?'w-4 h-4':'w-5 h-5';
+  return '<svg xmlns="http://www.w3.org/2000/svg" style="width:1em;height:1em" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">'+paths[name]+'</svg>';
+}
+
+function render(){
+  const agg=getAggregated(),mat=getMaterials(),costs=getCosts();
+  const mix=getConcreteMix(),gc=getGalpaoCalc(),sc=getSapataCalc(),pc=getPilarCalc(),vc=getVigaCalc(),lc=getLajeCalc();
+
+  document.getElementById('app').innerHTML=`
+<div class="app">
+  <aside class="sidebar">
+    <div>
+      <div class="sidebar-logo">
+        <div style="display:flex;align-items:center;gap:.5rem">
+          <div class="logo-mark"><span>ENG</span><span class="logo-mark-inner">JOHN</span></div>
+          <span class="logo-text">ENG - JOHN</span>
+        </div>
+      </div>
+      <nav class="nav">
+        <button class="nav-btn${S.activeTab==='project'?' active':''}" data-tab="project">${icon('Blueprint')} 1. Projeto & Elementos (${S.calcElements.length})</button>
+        <button class="nav-btn${S.activeTab==='calculators'?' active':''}" data-tab="calculators">${icon('Calculator')} 2. Calculadoras Estruturais</button>
+        <button class="nav-btn${S.activeTab==='galpao'?' active':''}" data-tab="galpao">${icon('Warehouse')} 3. Projeto Galpão Metálico</button>
+        <button class="nav-btn${S.activeTab==='mix'?' active':''}" data-tab="mix">${icon('Database')} 4. Traços & Acabamento</button>
+        <button class="nav-btn${S.activeTab==='pdf'?' active':''}" data-tab="pdf">${icon('PDF')} 5. Memorial & PDF Técnico</button>
+      </nav>
+    </div>
+    <div class="compliance"><p>ENG - JOHN Compliance</p><p>NBR 6118 / NBR 6122 / NBR 8800</p></div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <div class="topbar-left">
+        <div class="topbar-title">
+          <h2>${S.projectInfo.projectName} | <span>${S.projectInfo.city}-${S.projectInfo.state}</span></h2>
+          <button class="btn-edit-project" data-edit-toggle>${icon('Edit')}<span>Editar Projeto</span></button>
+        </div>
+        <p class="topbar-sub">Construtora / Cliente: <span>${S.projectInfo.clientName}</span> | ART: <span style="font-family:'Courier New',monospace">${S.projectInfo.art}</span></p>
+      </div>
+      <div class="topbar-kpis">
+        <div class="kpi-card"><span class="kpi-label">Volume Concreto</span><span class="kpi-value kpi-cyan">${agg.totalConcrete.toFixed(2)} m³</span></div>
+        <div class="kpi-card"><span class="kpi-label">Massa de Aço</span><span class="kpi-value kpi-purple">${agg.totalSteel.toFixed(1)} kg</span></div>
+        <div class="kpi-card" style="min-width:130px"><span class="kpi-label">Orçamento Estimado</span><span class="kpi-value kpi-green">R$ ${costs.grandTotal.toLocaleString('pt-BR',{maximumFractionDigits:0})}</span></div>
+      </div>
+    </div>
+
+    ${S.isQuickEditOpen?`
+    <div class="edit-panel">
+      <div class="edit-header">
+        <h3>${icon('Edit')} Alterar Dados Cadastrais Manualmente (ENG - JOHN)</h3>
+        <button class="btn-close-panel" data-close-edit>Fechar Panel ✕</button>
+      </div>
+      <div class="edit-grid">
+        <div><label>Nome do Projeto/Obra</label><input type="text" data-field="projectName" value="${escHtml(S.projectInfo.projectName)}"></div>
+        <div><label>Cliente / Construtora</label><input type="text" data-field="clientName" value="${escHtml(S.projectInfo.clientName)}"></div>
+        <div><label>Cidade</label><input type="text" data-field="city" value="${escHtml(S.projectInfo.city)}"></div>
+        <div><label>Estado</label><input type="text" data-field="state" value="${escHtml(S.projectInfo.state)}"></div>
+        <div><label>Responsável Técnico</label><input type="text" data-field="responsible" value="${escHtml(S.projectInfo.responsible)}"></div>
+        <div><label>CREA</label><input type="text" data-field="crea" value="${escHtml(S.projectInfo.crea)}"></div>
+        <div><label>ART</label><input type="text" data-field="art" value="${escHtml(S.projectInfo.art)}"></div>
+        <div style="display:flex;align-items:flex-end"><button class="btn-save" data-save-edit>Salvar e Aplicar Dados</button></div>
+      </div>
+    </div>`:''}
+
+    <div class="content">
+      ${S.activeTab==='project'?renderProject(agg,mat):''}
+      ${S.activeTab==='calculators'?renderCalculators(sc,pc,vc,lc):''}
+      ${S.activeTab==='galpao'?renderGalpao(gc):''}
+      ${S.activeTab==='mix'?renderMix(mix,mat):''}
+      ${S.activeTab==='pdf'?renderPDF(agg,mat,costs):''}
+    </div>
+
+    <footer>
+      <div class="footer-inner">
+        <p>© 2026 ENG - JOHN PRO - Plataforma Integrada de Engenharia e Cruzamento de Dados.</p>
+        <div class="footer-meta"><span>NBR Standard Compliant</span><span style="color:#22d3ee">John Engineering S/A</span></div>
+      </div>
+    </footer>
+  </main>
+</div>`;
+  bindEvents();
+}
+
+function escHtml(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+
+function renderProject(agg,mat){
+  return `
+<div style="display:flex;flex-direction:column;gap:1.5rem">
+  <div class="rpg">
+  <div class="card">
+    <h3 class="card-title">1. Dados Cadastrais & Normas</h3>
+    <div style="display:flex;flex-direction:column;gap:.75rem;font-size:.75rem">
+      <div><label style="display:block;color:#94a3b8;margin-bottom:.25rem">Nome do Projeto/Obra</label><input class="input-field" type="text" data-field="projectName" value="${escHtml(S.projectInfo.projectName)}"></div>
+      <div><label style="display:block;color:#94a3b8;margin-bottom:.25rem">Cliente / Construtora</label><input class="input-field" type="text" data-field="clientName" value="${escHtml(S.projectInfo.clientName)}"></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem">
+        <div><label style="display:block;color:#94a3b8;margin-bottom:.25rem">Cidade</label><input class="input-field" type="text" data-field="city" value="${escHtml(S.projectInfo.city)}"></div>
+        <div><label style="display:block;color:#94a3b8;margin-bottom:.25rem">Estado</label><input class="input-field" type="text" data-field="state" value="${escHtml(S.projectInfo.state)}"></div>
+      </div>
+      <div><label style="display:block;color:#94a3b8;margin-bottom:.25rem">Norma NBR Técnica Primária</label><select class="select-field" data-nbr-select>${standardsList.map(st=>'<option value="'+st.code+'"'+(S.projectInfo.standard===st.code?' selected':'')+'>'+st.code+' - '+st.desc+'</option>').join('')}</select></div>
+    </div>
+  </div>
+  <div style="background:#0f172a;border:1px solid #1e293b;border-radius:.75rem;padding:1.25rem;grid-column:span 2">
+    <div class="card-title-flex"><h3 style="font-size:.875rem;font-weight:800;color:#fff">2. Elementos Dimensionados & Salvados</h3><span class="badge-crossed">CROSSED POOL</span></div>
+    <p style="font-size:.75rem;color:#94a3b8;line-height:1.625;margin-bottom:1rem">Estes elementos estruturais já foram calculados e estão cruzando informações automaticamente para a dosagem de concreto, quantitativos agregados, insumos SINAPI e memorial descritivo.</p>
+    <div class="element-list">${S.calcElements.map(el=>`
+      <div class="element-card">
+        <div>
+          <div style="display:flex;align-items:center;gap:.5rem"><span style="font-weight:700;color:#e2e8f0">${escHtml(el.name)}</span><span class="element-tag">${el.type}</span></div>
+          <span style="font-size:10px;color:#94a3b8;display:block;margin-top:.25rem">${escHtml(el.note)}</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:1rem">
+          <div style="text-align:right;font-family:'Courier New',monospace"><span style="display:block;color:#22d3ee;font-weight:700">${el.concreteVol} m³ concrete</span><span style="font-size:10px;color:#a78bfa;display:block">${el.steelWeight} kg aço</span></div>
+          <button class="btn-trash" data-del="${el.id}">${icon('Trash')}</button>
+        </div>
+      </div>`).join('')}</div>
+  </div>
+  </div>
+  <div class="engine-box">
+    <div class="engine-glow"></div>
+    <h4 class="engine-title">Mecanismo de Cruzamento Integrado de Engenharia</h4>
+    <p class="engine-text">Ao dimensionar qualquer elemento, o ENGCALC PRO elimina cálculos isolados. O somatório de <strong style="color:#fff">${agg.totalConcrete.toFixed(2)} m³</strong> de concreto estrutural exige o processamento de <strong style="color:#fff">${mat.cementSacks} sacos de cimento</strong>, <strong style="color:#fff">${mat.sandM3.toFixed(2)} m³ de areia</strong> e <strong style="color:#fff">${mat.gravelM3.toFixed(2)} m³ de brita</strong> com base no traço do FCK determinado.</p>
+  </div>
+</div>`;
+}
+
+function renderCalculators(sc,pc,vc,lc){
+  const ns=S.calcElements.length+1;
+  return `
+<div class="calc-grid">
+  <div class="card">
+    <div class="calc-header"><span class="calc-norm">NBR 6122</span><h3 style="font-size:.875rem;font-weight:800;color:#fff;margin-top:.25rem">Calculadora de Sapata Isolada</h3></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem;font-size:.75rem">
+      <div><label class="calc-label">Carga de Projeto (kN)</label><input class="calc-input" type="number" data-sp-load value="${S.sapataParams.load}"></div>
+      <div><label class="calc-label">Tensão Admissível Solo (MPa)</label><input class="calc-input" type="number" step="0.05" data-sp-soil value="${S.sapataParams.soilCapacity}"></div>
+      <div><label class="calc-label">Comprimento da Base A (m)</label><input class="calc-input" type="number" step="0.1" data-sp-len value="${S.sapataParams.length}"></div>
+      <div><label class="calc-label">Largura da Base B (m)</label><input class="calc-input" type="number" step="0.1" data-sp-wid value="${S.sapataParams.width}"></div>
+    </div>
+    <div class="schematic-box" style="height:9rem;margin-top:.75rem">
+      <svg style="width:7rem;height:7rem;color:#06b6d4" viewBox="0 0 100 100" fill="none"><rect x="15" y="45" width="70" height="40" rx="2" fill="rgba(6,182,212,0.15)" stroke="#06b6d4" stroke-width="1.5"/><rect x="38" y="15" width="24" height="30" rx="1" fill="rgba(6,182,212,0.1)" stroke="#06b6d4" stroke-width="1.5" stroke-dasharray="2"/><line x1="20" y1="75" x2="80" y2="75" stroke="#a78bfa" stroke-width="2"/><line x1="20" y1="80" x2="80" y2="80" stroke="#a78bfa" stroke-width="2"/></svg>
+      <div class="schematic-vol">Vol: ${sc.concreteVol} m³</div>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-top:.75rem">
+      <span class="calc-suggestion">Sugestão L1 x L2: ${sc.suggestedSide}m</span>
+      <button class="btn-add-pool" data-add="Sapata" data-name="Sapata Estrutural S${ns}" data-cv="${sc.concreteVol}" data-sw="${sc.steelWeight}">+ Adicionar e Cruzar Dados</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="calc-header"><span class="calc-norm">NBR 6118</span><h3 style="font-size:.875rem;font-weight:800;color:#fff;margin-top:.25rem">Calculadora de Pilar de Concreto</h3></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem;font-size:.75rem">
+      <div><label class="calc-label">Altura do Pilar / Pé Direito (m)</label><input class="calc-input" type="number" step="0.5" data-pl-height value="${S.pilarParams.height}"></div>
+      <div><label class="calc-label">Seção Pilar - X (m)</label><input class="calc-input" type="number" step="0.05" data-pl-wid value="${S.pilarParams.width}"></div>
+      <div style="grid-column:span 2"><label class="calc-label">Seção Pilar - Y (m)</label><input class="calc-input" type="number" step="0.05" data-pl-depth value="${S.pilarParams.depth}"></div>
+    </div>
+    <div class="schematic-box" style="height:9rem;margin-top:.75rem">
+      <svg style="width:4rem;height:8rem;color:#06b6d4" viewBox="0 0 50 100" fill="none"><rect x="15" y="10" width="20" height="80" rx="1" fill="rgba(6,182,212,0.15)" stroke="#06b6d4" stroke-width="1"/><line x1="18" y1="10" x2="18" y2="90" stroke="#f43f5e" stroke-width="1.5"/><line x1="32" y1="10" x2="32" y2="90" stroke="#f43f5e" stroke-width="1.5"/></svg>
+      <div class="schematic-vol">Aço: ${pc.steelWeight} kg</div>
+    </div>
+    <div style="text-align:right;margin-top:.75rem">
+      <button class="btn-add-pool" data-add="Pilar" data-name="Pilar P${ns}" data-cv="${pc.concreteVol}" data-sw="${pc.steelWeight}">+ Adicionar e Cruzar Dados</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="calc-header"><span class="calc-norm">NBR 6118</span><h3 style="font-size:.875rem;font-weight:800;color:#fff;margin-top:.25rem">Calculadora de Viga</h3></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.5rem;font-size:.75rem">
+      <div><label class="calc-label">Vão / Comp (m)</label><input class="calc-input" type="number" data-vg-len value="${S.vigaParams.length}"></div>
+      <div><label class="calc-label">Largura B (m)</label><input class="calc-input" type="number" step="0.05" data-vg-wid value="${S.vigaParams.width}"></div>
+      <div><label class="calc-label">Altura H (m)</label><input class="calc-input" type="number" step="0.05" data-vg-ht value="${S.vigaParams.height}"></div>
+    </div>
+    <div class="schematic-box" style="height:6rem;margin-top:.75rem">
+      <svg style="width:14rem;height:3rem;color:#06b6d4" viewBox="0 0 200 40" fill="none"><rect x="10" y="10" width="180" height="20" rx="1" fill="rgba(6,182,212,0.15)" stroke="#06b6d4" stroke-width="1"/><line x1="30" y1="10" x2="30" y2="30" stroke="#f43f5e" stroke-width="1" stroke-dasharray="1"/><line x1="60" y1="10" x2="60" y2="30" stroke="#f43f5e" stroke-width="1" stroke-dasharray="1"/><line x1="90" y1="10" x2="90" y2="30" stroke="#f43f5e" stroke-width="1" stroke-dasharray="1"/><line x1="120" y1="10" x2="120" y2="30" stroke="#f43f5e" stroke-width="1" stroke-dasharray="1"/><line x1="150" y1="10" x2="150" y2="30" stroke="#f43f5e" stroke-width="1" stroke-dasharray="1"/></svg>
+    </div>
+    <div style="text-align:right;margin-top:.75rem">
+      <button class="btn-add-pool" data-add="Viga" data-name="Viga V${ns}" data-cv="${vc.concreteVol}" data-sw="${vc.steelWeight}">+ Adicionar e Cruzar Dados</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="calc-header"><span class="calc-norm">NBR 6118</span><h3 style="font-size:.875rem;font-weight:800;color:#fff;margin-top:.25rem">Calculadora de Laje</h3></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem;font-size:.75rem">
+      <div><label class="calc-label">Área Útil de Laje (m²)</label><input class="calc-input" type="number" data-lj-area value="${S.lajeParams.area}"></div>
+      <div><label class="calc-label">Espessura (m)</label><input class="calc-input" type="number" step="0.02" data-lj-thick value="${S.lajeParams.thickness}"></div>
+    </div>
+    <div style="background:#020617;height:6rem;border-radius:.5rem;border:1px solid rgba(30,41,59,.8);margin-top:.75rem;padding:.75rem;display:flex;flex-direction:column;justify-content:space-between;font-size:11px;color:#94a3b8">
+      <div>Cálculo Auxiliar de Escoramento (Cimbramento):</div>
+      <div style="display:flex;justify-content:space-between;font-family:'Courier New',monospace;color:#e2e8f0"><span>Escoras sugeridas (metálicas):</span><strong style="color:#22d3ee">${lc.escoras} unidades</strong></div>
+    </div>
+    <div style="text-align:right;margin-top:.75rem">
+      <button class="btn-add-pool" data-add="Laje" data-name="Laje L${ns}" data-cv="${lc.concreteVol}" data-sw="${lc.steelWeight}">+ Adicionar e Cruzar Dados</button>
+    </div>
+  </div>
+</div>`;
+}
+
+function renderGalpao(gc){
+  return `
+<div class="card" style="padding:1.5rem">
+  <div style="border-bottom:1px solid #1e293b;padding-bottom:1rem;margin-bottom:1.5rem">
+    <h2 style="font-size:1.125rem;font-weight:700;color:#fff;display:flex;align-items:center;gap:.5rem">${icon('Warehouse')} Dimensionador Rápido de Galpão Metálico Industrial</h2>
+    <p style="font-size:.75rem;color:#94a3b8;margin-top:.25rem">Estimativa de pilares, terças, treliças (tesouras), telhas de cobertura e insumo de pintura.</p>
+  </div>
+  <div class="rgg">
+    <div style="display:flex;flex-direction:column;gap:1rem;font-size:.75rem">
+      <div><label style="display:block;color:#94a3b8;margin-bottom:.25rem">Largura Útil do Galpão (m)</label><input class="input-field input-mono" type="number" data-gl-width value="${S.galpaoParams.width}"></div>
+      <div><label style="display:block;color:#94a3b8;margin-bottom:.25rem">Comprimento do Vão (m)</label><input class="input-field input-mono" type="number" data-gl-length value="${S.galpaoParams.length}"></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem">
+        <div><label style="display:block;color:#94a3b8;margin-bottom:.25rem">Pé Direito (m)</label><input class="input-field input-mono" type="number" data-gl-height value="${S.galpaoParams.height}"></div>
+        <div><label style="display:block;color:#94a3b8;margin-bottom:.25rem">Inclinação Tesoura (%)</label><input class="input-field input-mono" type="number" data-gl-slope value="${S.galpaoParams.slope}"></div>
+      </div>
+    </div>
+    <div class="schematic-box" style="height:14rem">
+      <svg style="width:12rem;height:12rem;color:#06b6d4" viewBox="0 0 100 100" fill="none"><line x1="20" y1="80" x2="20" y2="45" stroke="#06b6d4" stroke-width="2"/><line x1="80" y1="80" x2="80" y2="45" stroke="#06b6d4" stroke-width="2"/><line x1="20" y1="45" x2="50" y2="25" stroke="#06b6d4" stroke-width="2"/><line x1="80" y1="45" x2="50" y2="25" stroke="#06b6d4" stroke-width="2"/><line x1="10" y1="80" x2="90" y2="80" stroke="#475569" stroke-width="1"/><circle cx="30" cy="38" r="1.5" fill="#f43f5e"/><circle cx="40" cy="31" r="1.5" fill="#f43f5e"/><circle cx="60" cy="31" r="1.5" fill="#f43f5e"/><circle cx="70" cy="38" r="1.5" fill="#f43f5e"/></svg>
+      <div class="schematic-label">Corte Esquemático Metálico</div>
+    </div>
+    <div style="background:#020617;padding:1.25rem;border-radius:.75rem;border:1px solid #1e293b;font-size:.75rem">
+      <span style="font-size:10px;text-transform:uppercase;font-weight:700;color:#94a3b8;display:block;margin-bottom:.75rem">Resultados da Estrutura</span>
+      <div style="display:flex;flex-direction:column;gap:.5rem;font-family:'Courier New',monospace">
+        <div style="display:flex;justify-content:space-between;border-bottom:1px solid #0f172a;padding-bottom:.375rem"><span style="color:#94a3b8">Peso Estimado Estrutural:</span><strong style="color:#22d3ee">${gc.steelWeight} kg</strong></div>
+        <div style="display:flex;justify-content:space-between;border-bottom:1px solid #0f172a;padding-bottom:.375rem"><span style="color:#94a3b8">Área Real de Cobertura:</span><strong style="color:#e2e8f0">${gc.roofingArea} m²</strong></div>
+        <div style="display:flex;justify-content:space-between;border-bottom:1px solid #0f172a;padding-bottom:.375rem"><span style="color:#94a3b8">Insumo de Pintura:</span><strong style="color:#e2e8f0">${gc.paintingArea} m²</strong></div>
+        <div style="display:flex;justify-content:space-between"><span style="color:#94a3b8">Quantidade de Parafusos:</span><strong style="color:#e2e8f0">${gc.boltsQty} un</strong></div>
+      </div>
+    </div>
+  </div>
+</div>`;
+}
+
+function renderMix(mix,mat){
+  return `
+<div class="card" style="padding:1.5rem">
+  <div style="border-bottom:1px solid #1e293b;padding-bottom:1rem;margin-bottom:1.5rem">
+    <h2 style="font-size:1.125rem;font-weight:700;color:#fff">Traço de Concreto & Insumos Auxiliares</h2>
+    <p style="font-size:.75rem;color:#94a3b8;margin-top:.25rem">Configure o FCK padrão para o cruzamento de dosagens de cimento, brita e areia por metro cúbico.</p>
+  </div>
+  <div class="rgm">
+    <div style="background:#020617;padding:1.25rem;border-radius:.75rem;border:1px solid #1e293b;font-size:.75rem">
+      <h3 style="font-size:.75rem;font-weight:700;color:#22d3ee;text-transform:uppercase;letter-spacing:.05em;margin-bottom:1rem">Dosagem FCK</h3>
+      <div style="display:flex;flex-direction:column;gap:.5rem">
+        <label style="color:#94a3b8">Selecione o fck alvo (MPa)</label>
+        <select class="select-field" data-fck-select>
+          <option value="20"${S.fckChoice===20?' selected':''}>fck 20 MPa</option>
+          <option value="25"${S.fckChoice===25?' selected':''}>fck 25 MPa</option>
+          <option value="30"${S.fckChoice===30?' selected':''}>fck 30 MPa - Comercial/Viga</option>
+          <option value="35"${S.fckChoice===35?' selected':''}>fck 35 MPa - Protendido</option>
+          <option value="40"${S.fckChoice===40?' selected':''}>fck 40 MPa - Alto Desempenho</option>
+        </select>
+      </div>
+      <div style="background:#0f172a;padding:.75rem;border-radius:.5rem;margin-top:1rem;border:1px solid #1e293b;font-family:'Courier New',monospace;font-size:11px;color:#94a3b8"><div>cimento: ${mix.cement} sacos/m³</div><div>areia: ${mix.sand} m³/m³</div><div>brita: ${mix.gravel} m³/m³</div></div>
+    </div>
+    <div style="background:#020617;padding:1.25rem;border-radius:.75rem;border:1px solid #1e293b;font-size:.75rem">
+      <h3 style="font-size:.75rem;font-weight:700;color:#fb923c;text-transform:uppercase;letter-spacing:.05em;margin-bottom:1rem">Acabamento e Alvenaria</h3>
+      <div style="display:flex;flex-direction:column;gap:.75rem">
+        <div><label style="display:block;color:#94a3b8;margin-bottom:.25rem">Área Total de Parede / Alvenaria (m²)</label><input class="input-field input-mono" type="number" data-masonry value="${S.masonryArea}"></div>
+        <div><label style="display:block;color:#94a3b8;margin-bottom:.25rem">Área Total de Piso Cerâmico (m²)</label><input class="input-field input-mono" type="number" data-floor value="${S.floorArea}"></div>
+      </div>
+    </div>
+    <div style="background:#020617;padding:1.25rem;border-radius:.75rem;border:1px solid #1e293b;font-size:.75rem">
+      <span style="font-size:10px;text-transform:uppercase;font-weight:700;color:#94a3b8;display:block;margin-bottom:.75rem">Total Insumos Agrupados (Cruzamento)</span>
+      <div style="display:flex;flex-direction:column;gap:.375rem;font-family:'Courier New',monospace;font-size:11px">
+        <div style="display:flex;justify-content:space-between;border-bottom:1px solid #0f172a;padding-bottom:.25rem"><span>Cimento (Sacos 50kg):</span><strong style="color:#fff">${mat.cementSacks} sc</strong></div>
+        <div style="display:flex;justify-content:space-between;border-bottom:1px solid #0f172a;padding-bottom:.25rem"><span>Areia Média:</span><strong style="color:#fff">${mat.sandM3.toFixed(2)} m³</strong></div>
+        <div style="display:flex;justify-content:space-between;border-bottom:1px solid #0f172a;padding-bottom:.25rem"><span>Pedra / Brita 1:</span><strong style="color:#fff">${mat.gravelM3.toFixed(2)} m³</strong></div>
+        <div style="display:flex;justify-content:space-between;border-bottom:1px solid #0f172a;padding-bottom:.25rem"><span>Tijolos de Vedação:</span><strong style="color:#fb923c">${mat.brickQty} un</strong></div>
+        <div style="display:flex;justify-content:space-between"><span>Argamassa Colante (ACIII):</span><strong style="color:#fff">${Math.ceil(S.floorArea*5)} kg</strong></div>
+      </div>
+    </div>
+  </div>
+</div>`;
+}
+
+function renderPDF(agg,mat,costs){
+  return `
+<div class="pdf-doc">
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;border-bottom:2px solid #0f172a;padding-bottom:1.25rem">
+    <div><h1 style="font-size:1.5rem;font-weight:900;letter-spacing:-.025em;text-transform:uppercase">ENG - JOHN PRO</h1><span style="font-size:.75rem;font-weight:700;color:#64748b;font-family:'Courier New',monospace;text-transform:uppercase">Memorial Descritivo e Quantitativo de Engenharia</span></div>
+    <div style="text-align:right;font-size:.75rem"><p style="font-weight:700">Emissão: 24/06/2026</p><p style="color:#64748b;font-family:'Courier New',monospace">John Eng Office</p></div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;font-size:.75rem;padding-top:.5rem">
+    <div><span style="font-size:10px;color:#94a3b8;text-transform:uppercase;font-weight:700;display:block">Obra / Local</span><strong style="font-size:.875rem;display:block;margin-top:.125rem">${escHtml(S.projectInfo.projectName)}</strong><span style="color:#475569;display:block;margin-top:.25rem">${S.projectInfo.city} - ${S.projectInfo.state}</span></div>
+    <div><span style="font-size:10px;color:#94a3b8;text-transform:uppercase;font-weight:700;display:block">Especificações Cliente</span><strong style="font-size:.875rem;display:block;margin-top:.125rem">${escHtml(S.projectInfo.clientName)}</strong><span style="color:#475569;display:block;margin-top:.25rem">Contato: ${S.projectInfo.clientPhone} | ${S.projectInfo.clientEmail}</span></div>
+  </div>
+  <div style="margin-top:1.5rem;font-size:.75rem">
+    <h3 style="font-size:.75rem;font-weight:700;text-transform:uppercase;border-bottom:1px solid #cbd5e1;padding-bottom:.25rem;margin-bottom:.5rem">1. Critérios de Dimensionamento</h3>
+    <p style="line-height:1.625;color:#475569">O dimensionamento dos elementos estruturais de concreto armado seguiu rigorosamente os preceitos da norma técnica <strong>${S.projectInfo.standard}</strong>. O concreto utilizado foi estabelecido com classe de resistência mecânica mínima de cálculo de fck = ${S.fckChoice} MPa e módulo de elasticidade condizente. O detalhamento das armaduras longitudinais e estribos de cisalhamento adota aço CA-50 conforme critérios limites de tração e compressão da engenharia civil brasileira.</p>
+  </div>
+  <div style="margin-top:1.5rem">
+    <h3 style="font-size:.75rem;font-weight:700;text-transform:uppercase;border-bottom:1px solid #cbd5e1;padding-bottom:.25rem;margin-bottom:.75rem">2. Lista de Elementos Estruturais Cadastrados</h3>
+    <table class="pdf-table">
+      <thead><tr><th style="text-align:left">Identificador</th><th style="text-align:left">Tipo</th><th style="text-align:right">Vol Concreto (m³)</th><th style="text-align:right">Peso Aço (kg)</th></tr></thead>
+      <tbody>${S.calcElements.map(el=>'<tr><td style="padding:.5rem;font-weight:600;color:#0f172a;border-bottom:1px solid #e2e8f0">'+escHtml(el.name)+'</td><td style="padding:.5rem;color:#64748b;text-transform:uppercase;border-bottom:1px solid #e2e8f0">'+el.type+'</td><td style="padding:.5rem;text-align:right;border-bottom:1px solid #e2e8f0">'+el.concreteVol+'</td><td style="padding:.5rem;text-align:right;border-bottom:1px solid #e2e8f0">'+el.steelWeight+'</td></tr>').join('')}</tbody>
+    </table>
+  </div>
+  <div style="margin-top:1.5rem">
+    <h3 style="font-size:.75rem;font-weight:700;text-transform:uppercase;border-bottom:1px solid #cbd5e1;padding-bottom:.25rem;margin-bottom:.75rem">3. Insumos Agrupados (Resultado do Cruzamento)</h3>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;font-size:.75rem">
+      <div style="background:#f8fafc;padding:.75rem;border-radius:.25rem;border:1px solid #e2e8f0;font-family:'Courier New',monospace">
+        <span style="font-size:10px;color:#64748b;text-transform:uppercase;display:block">Infra de Concreto</span>
+        <p style="margin-top:.25rem">Cimento CP II: <strong style="color:#0f172a">${mat.cementSacks} sacos</strong></p>
+        <p>Areia Lavada: <strong style="color:#0f172a">${mat.sandM3.toFixed(2)} m³</strong></p>
+        <p>Brita 1: <strong style="color:#0f172a">${mat.gravelM3.toFixed(2)} m³</strong></p>
+      </div>
+      <div style="background:#f8fafc;padding:.75rem;border-radius:.25rem;border:1px solid #e2e8f0;font-family:'Courier New',monospace">
+        <span style="font-size:10px;color:#64748b;text-transform:uppercase;display:block">Soma Metal & Blocos</span>
+        <p style="margin-top:.25rem">Aço CA-50 Total: <strong style="color:#0f172a">${agg.totalSteel.toFixed(1)} kg</strong></p>
+        <p>Bloco Alvenaria: <strong style="color:#0f172a">${mat.brickQty} unidades</strong></p>
+        <p>Piso Cerâmico m²: <strong style="color:#0f172a">${mat.flooringTileM2.toFixed(1)} m²</strong></p>
+      </div>
+    </div>
+  </div>
+  <div style="margin-top:1.5rem">
+    <h3 style="font-size:.75rem;font-weight:700;text-transform:uppercase;border-bottom:1px solid #cbd5e1;padding-bottom:.25rem;margin-bottom:.75rem">4. Estimativa Financeira de Insumos (Ref: SINAPI/TCPO)</h3>
+    <table class="pdf-table">
+      <thead><tr><th style="text-align:left">Item / Descrição</th><th style="text-align:right">Qtd</th><th style="text-align:left">Un</th><th style="text-align:right">Preço Unit (R$)</th><th style="text-align:right">Total (R$)</th></tr></thead>
+      <tbody>${costs.items.map(it=>'<tr><td style="padding:.5rem;border-bottom:1px solid #e2e8f0">'+escHtml(it.item)+'</td><td style="padding:.5rem;text-align:right;border-bottom:1px solid #e2e8f0">'+it.qty+'</td><td style="padding:.5rem;border-bottom:1px solid #e2e8f0">'+it.unit+'</td><td style="padding:.5rem;text-align:right;border-bottom:1px solid #e2e8f0">'+it.price.toFixed(2)+'</td><td style="padding:.5rem;text-align:right;font-weight:700;border-bottom:1px solid #e2e8f0">'+(it.qty*it.price).toLocaleString('pt-BR',{minimumFractionDigits:2})+'</td></tr>').join('')}
+      <tr><td colspan="4" style="padding:.5rem;border-top:2px solid #0f172a;font-weight:700">CUSTO TOTAL ESTIMADO INSUMOS</td><td style="padding:.5rem;text-align:right;border-top:2px solid #0f172a;font-weight:700;color:#047857">R$ ${costs.grandTotal.toLocaleString('pt-BR',{minimumFractionDigits:2})}</td></tr></tbody>
+    </table>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;text-align:center;font-size:10px;margin-top:3rem;border-top:1px solid #cbd5e1;padding-top:3rem">
+    <div><div style="height:2px;background:#cbd5e1;width:12rem;margin:0 auto 1rem"></div><strong style="display:block;color:#0f172a">${escHtml(S.projectInfo.projectName)}</strong><span style="color:#64748b">Responsável Técnico</span></div>
+    <div><div style="height:2px;background:#cbd5e1;width:12rem;margin:0 auto 1rem"></div><strong style="display:block;color:#0f172a">John Engineering Office</strong><span style="color:#64748b">Fiscalização / Emissão</span></div>
+  </div>
+  <div class="no-print" style="display:flex;justify-content:space-between;align-items:center;margin-top:1rem;padding-top:1rem;border-top:1px solid #e2e8f0">
+    <span style="font-size:9px;color:#94a3b8;font-family:'Courier New',monospace">CHAVE DE VALIDAÇÃO ELETRÔNICA: #ENGCALC-2026-B81A</span>
+    <button onclick="window.print()" style="background:#0f172a;color:#fff;font-weight:700;border:none;padding:.5rem 1.25rem;border-radius:.5rem;font-size:.75rem;cursor:pointer">Imprimir Dossiê Técnico Completo</button>
+  </div>
+</div>`;
+}
+
+function bindEvents(){
+  document.querySelectorAll('[data-tab]').forEach(b=>b.addEventListener('click',()=>{S.activeTab=b.dataset.tab;render();}));
+  document.querySelectorAll('[data-edit-toggle]').forEach(b=>b.addEventListener('click',()=>{S.isQuickEditOpen=!S.isQuickEditOpen;render();}));
+  document.querySelectorAll('[data-close-edit],[data-save-edit]').forEach(b=>b.addEventListener('click',()=>{
+    document.querySelectorAll('[data-field]').forEach(inp=>{S.projectInfo[inp.dataset.field]=inp.value;});
+    S.isQuickEditOpen=false;render();
+  }));
+  document.querySelectorAll('[data-del]').forEach(b=>b.addEventListener('click',()=>{S.calcElements=S.calcElements.filter(e=>e.id!==b.dataset.del);render();}));
+  document.querySelectorAll('[data-add]').forEach(b=>b.addEventListener('click',()=>{
+    S.calcElements.push({id:b.dataset.add.toLowerCase()+'-'+Date.now(),name:b.dataset.name,type:b.dataset.add,concreteVol:parseFloat(b.dataset.cv),steelWeight:parseFloat(b.dataset.sw),note:'Adicionado via Módulo Calculadoras ('+b.dataset.add+')'});
+    S.activeTab='project';render();
+  }));
+
+  // live calc inputs
+  document.querySelectorAll('[data-sp-load]').forEach(el=>el.addEventListener('input',function(){S.sapataParams.load=parseFloat(this.value)||0;render();}));
+  document.querySelectorAll('[data-sp-soil]').forEach(el=>el.addEventListener('input',function(){S.sapataParams.soilCapacity=parseFloat(this.value)||0;render();}));
+  document.querySelectorAll('[data-sp-len]').forEach(el=>el.addEventListener('input',function(){S.sapataParams.length=parseFloat(this.value)||0;render();}));
+  document.querySelectorAll('[data-sp-wid]').forEach(el=>el.addEventListener('input',function(){S.sapataParams.width=parseFloat(this.value)||0;render();}));
+  document.querySelectorAll('[data-pl-height]').forEach(el=>el.addEventListener('input',function(){S.pilarParams.height=parseFloat(this.value)||0;render();}));
+  document.querySelectorAll('[data-pl-wid]').forEach(el=>el.addEventListener('input',function(){S.pilarParams.width=parseFloat(this.value)||0;render();}));
+  document.querySelectorAll('[data-pl-depth]').forEach(el=>el.addEventListener('input',function(){S.pilarParams.depth=parseFloat(this.value)||0;render();}));
+  document.querySelectorAll('[data-vg-len]').forEach(el=>el.addEventListener('input',function(){S.vigaParams.length=parseFloat(this.value)||0;render();}));
+  document.querySelectorAll('[data-vg-wid]').forEach(el=>el.addEventListener('input',function(){S.vigaParams.width=parseFloat(this.value)||0;render();}));
+  document.querySelectorAll('[data-vg-ht]').forEach(el=>el.addEventListener('input',function(){S.vigaParams.height=parseFloat(this.value)||0;render();}));
+  document.querySelectorAll('[data-lj-area]').forEach(el=>el.addEventListener('input',function(){S.lajeParams.area=parseFloat(this.value)||0;render();}));
+  document.querySelectorAll('[data-lj-thick]').forEach(el=>el.addEventListener('input',function(){S.lajeParams.thickness=parseFloat(this.value)||0;render();}));
+  document.querySelectorAll('[data-gl-width]').forEach(el=>el.addEventListener('input',function(){S.galpaoParams.width=parseFloat(this.value)||0;render();}));
+  document.querySelectorAll('[data-gl-length]').forEach(el=>el.addEventListener('input',function(){S.galpaoParams.length=parseFloat(this.value)||0;render();}));
+  document.querySelectorAll('[data-gl-height]').forEach(el=>el.addEventListener('input',function(){S.galpaoParams.height=parseFloat(this.value)||0;render();}));
+  document.querySelectorAll('[data-gl-slope]').forEach(el=>el.addEventListener('input',function(){S.galpaoParams.slope=parseFloat(this.value)||0;render();}));
+  document.querySelectorAll('[data-fck-select]').forEach(el=>el.addEventListener('change',function(){S.fckChoice=parseInt(this.value);render();}));
+  document.querySelectorAll('[data-masonry]').forEach(el=>el.addEventListener('input',function(){S.masonryArea=parseFloat(this.value)||0;render();}));
+  document.querySelectorAll('[data-floor]').forEach(el=>el.addEventListener('input',function(){S.floorArea=parseFloat(this.value)||0;render();}));
+  document.querySelectorAll('[data-nbr-select]').forEach(el=>el.addEventListener('change',function(){S.projectInfo.standard=this.value;render();}));
+
+  // edit panel fields live
+  document.querySelectorAll('.edit-grid [data-field]').forEach(inp=>inp.addEventListener('input',function(){S.projectInfo[this.dataset.field]=this.value;}));
+}
+
+render();
+</script>
+</body>
+</html>
