@@ -155,6 +155,126 @@ footer{background:#0f172a;border-top:1px solid #1e293b;padding:1rem 1.5rem;text-
 .cron-item:last-child{border-bottom:none}
 .cron-label{color:#94a3b8}
 .cron-value{font-weight:600;color:#e2e8f0}
+/* ===== Database Editor ===== */
+.db-edit-grid{display:grid;grid-template-columns:1fr;gap:1.5rem}
+@media(min-width:768px){.db-edit-grid{grid-template-columns:1fr 1fr}}
+.db-edit-card{background:#020617;border:1px solid #1e293b;border-radius:.5rem;padding:.75rem}
+.db-edit-card h4{font-size:10px;font-weight:700;color:#22d3ee;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.5rem;display:flex;align-items:center;gap:.375rem}
+.db-edit-row{display:grid;grid-template-columns:1fr 60px 60px;gap:.375rem;align-items:center;margin-bottom:.375rem;font-size:11px}
+.db-edit-row input{background:#0f172a;border:1px solid #1e293b;border-radius:.25rem;padding:.25rem .375rem;color:#e2e8f0;font-size:11px;font-family:"Courier New",monospace;width:100%}
+.db-edit-row input:focus{border-color:#06b6d4;outline:none}
+.db-edit-row span{color:#94a3b8;font-size:10px}
+/* ===== Theme Toggle ===== */
+.theme-bar{display:flex;gap:.25rem;padding:.5rem .75rem;flex-wrap:wrap}
+.theme-btn{font-size:9px;padding:.25rem .5rem;border-radius:.375rem;border:1px solid #1e293b;background:transparent;color:#64748b;cursor:pointer;font-weight:600;transition:all .15s}
+.theme-btn:hover{color:#e2e8f0;border-color:#475569}
+.theme-btn.active{background:rgba(6,182,212,.1);color:#22d3ee;border-color:rgba(6,182,212,.3)}
+/* ===== Theme: White ===== */
+[data-theme="white"] body,
+[data-theme="white"] .app{background:#f8fafc;color:#0f172a}
+[data-theme="white"] .sidebar{background:#fff;border-color:#e2e8f0}
+[data-theme="white"] .nav-btn{color:#64748b}
+[data-theme="white"] .nav-btn:hover{background:#f1f5f9;color:#0f172a}
+[data-theme="white"] .nav-btn.active{background:#ecfeff;color:#0891b2;border-color:#a5f3fc}
+[data-theme="white"] .compliance{color:#94a3b8}
+[data-theme="white"] .topbar{background:rgba(255,255,255,.8);border-color:#e2e8f0}
+[data-theme="white"] .topbar-title h2{color:#0f172a}
+[data-theme="white"] .btn-edit-project{background:#f1f5f9;border-color:#cbd5e1;color:#475569}
+[data-theme="white"] .kpi-card{background:#fff;border-color:#e2e8f0}
+[data-theme="white"] .card{background:#fff;border-color:#e2e8f0}
+[data-theme="white"] .card-title{color:#0f172a;border-color:#e2e8f0}
+[data-theme="white"] .input-field{background:#f8fafc;border-color:#cbd5e1;color:#0f172a}
+[data-theme="white"] .select-field{background:#f8fafc;border-color:#cbd5e1;color:#0f172a}
+[data-theme="white"] .engine-box{background:#fff;border-color:#e2e8f0}
+[data-theme="white"] .engine-text{color:#475569}
+[data-theme="white"] .calc-input{background:#f8fafc;border-color:#cbd5e1;color:#0f172a}
+[data-theme="white"] .schematic-box{background:#f8fafc;border-color:#e2e8f0}
+[data-theme="white"] .element-card{background:#f8fafc;border-color:#e2e8f0}
+[data-theme="white"] .badge-crossed{background:#ecfeff;color:#0891b2}
+[data-theme="white"] .calc-norm{background:#ecfeff;color:#0891b2;border-color:#a5f3fc}
+[data-theme="white"] .db-edit-card{background:#f8fafc;border-color:#e2e8f0}
+[data-theme="white"] .db-edit-row input{background:#fff;border-color:#cbd5e1;color:#0f172a}
+[data-theme="white"] footer{background:#fff;border-color:#e2e8f0;color:#94a3b8}
+/* ===== Theme: Noturno ===== */
+[data-theme="noturno"] body,
+[data-theme="noturno"] .app{background:#0a0a0a;color:#e0e0e0}
+[data-theme="noturno"] .sidebar{background:#111;border-color:#222}
+[data-theme="noturno"] .nav-btn{color:#888}
+[data-theme="noturno"] .nav-btn:hover{background:#1a1a1a;color:#fbbf24}
+[data-theme="noturno"] .nav-btn.active{background:rgba(251,191,36,.08);color:#fbbf24;border-color:rgba(251,191,36,.2)}
+[data-theme="noturno"] .compliance{color:#666}
+[data-theme="noturno"] .topbar{background:rgba(17,17,17,.8);border-color:#222}
+[data-theme="noturno"] .topbar-title h2{color:#fbbf24}
+[data-theme="noturno"] .btn-edit-project{background:#1a1a1a;border-color:#333;color:#aaa}
+[data-theme="noturno"] .kpi-card{background:#111;border-color:#222}
+[data-theme="noturno"] .kpi-cyan{color:#fbbf24}
+[data-theme="noturno"] .kpi-green{color:#fbbf24}
+[data-theme="noturno"] .kpi-purple{color:#fbbf24}
+[data-theme="noturno"] .card{background:#111;border-color:#222}
+[data-theme="noturno"] .card-title{color:#fbbf24;border-color:#222}
+[data-theme="noturno"] .input-field{background:#0a0a0a;border-color:#333;color:#e0e0e0}
+[data-theme="noturno"] .select-field{background:#0a0a0a;border-color:#333;color:#e0e0e0}
+[data-theme="noturno"] .engine-box{background:#111;border-color:rgba(251,191,36,.15)}
+[data-theme="noturno"] .engine-title{color:#fbbf24}
+[data-theme="noturno"] .engine-text{color:#999}
+[data-theme="noturno"] .calc-input{background:#0a0a0a;border-color:#333;color:#e0e0e0}
+[data-theme="noturno"] .schematic-box{background:#0a0a0a;border-color:#222}
+[data-theme="noturno"] .element-card{background:#0a0a0a;border-color:#222}
+[data-theme="noturno"] .badge-crossed{background:rgba(251,191,36,.1);color:#fbbf24}
+[data-theme="noturno"] .calc-norm{background:rgba(251,191,36,.1);color:#fbbf24;border-color:rgba(251,191,36,.2)}
+[data-theme="noturno"] .db-edit-card{background:#0a0a0a;border-color:#222}
+[data-theme="noturno"] .db-edit-row input{background:#111;border-color:#333;color:#e0e0e0}
+[data-theme="noturno"] footer{background:#111;border-color:#222;color:#666}
+[data-theme="noturno"] .btn-cyan{background:#fbbf24;color:#0a0a0a}
+[data-theme="noturno"] .btn-cyan:hover{background:#f59e0b}
+[data-theme="noturno"] .btn-add-pool{background:#fbbf24;color:#0a0a0a}
+[data-theme="noturno"] .btn-add-pool:hover{background:#f59e0b}
+[data-theme="noturno"] .btn-save{background:#fbbf24;color:#0a0a0a}
+[data-theme="noturno"] .btn-save:hover{background:#f59e0b}
+[data-theme="noturno"] .logo-mark{background:#fbbf24;color:#0a0a0a}
+[data-theme="noturno"] .logo-mark-inner{background:#0a0a0a;color:#fbbf24}
+/* ===== Theme: Alto Contraste ===== */
+[data-theme="alto-contraste"] body,
+[data-theme="alto-contraste"] .app{background:#000;color:#fff}
+[data-theme="alto-contraste"] .sidebar{background:#000;border-color:#fff}
+[data-theme="alto-contraste"] .nav-btn{color:#fff;border:1px solid transparent}
+[data-theme="alto-contraste"] .nav-btn:hover{background:#333;border-color:#fff}
+[data-theme="alto-contraste"] .nav-btn.active{background:#fff;color:#000;border-color:#fff}
+[data-theme="alto-contraste"] .compliance{color:#fff;border-color:#fff}
+[data-theme="alto-contraste"] .topbar{background:#000;border-color:#fff}
+[data-theme="alto-contraste"] .topbar-title h2{color:#fff}
+[data-theme="alto-contraste"] .btn-edit-project{background:#000;border-color:#fff;color:#fff}
+[data-theme="alto-contraste"] .kpi-card{background:#000;border-color:#fff}
+[data-theme="alto-contraste"] .kpi-cyan{color:#fff}
+[data-theme="alto-contraste"] .kpi-green{color:#fff}
+[data-theme="alto-contraste"] .kpi-purple{color:#fff}
+[data-theme="alto-contraste"] .card{background:#000;border-color:#fff}
+[data-theme="alto-contraste"] .card-title{color:#fff;border-color:#fff}
+[data-theme="alto-contraste"] .input-field{background:#000;border-color:#fff;color:#fff}
+[data-theme="alto-contraste"] .select-field{background:#000;border-color:#fff;color:#fff}
+[data-theme="alto-contraste"] .engine-box{background:#000;border-color:#fff}
+[data-theme="alto-contraste"] .engine-title{color:#fff}
+[data-theme="alto-contraste"] .engine-text{color:#fff}
+[data-theme="alto-contraste"] .calc-input{background:#000;border-color:#fff;color:#fff}
+[data-theme="alto-contraste"] .schematic-box{background:#000;border-color:#fff}
+[data-theme="alto-contraste"] .element-card{background:#000;border-color:#fff}
+[data-theme="alto-contraste"] .badge-crossed{background:#fff;color:#000}
+[data-theme="alto-contraste"] .calc-norm{background:#fff;color:#000;border-color:#fff}
+[data-theme="alto-contraste"] .db-edit-card{background:#000;border-color:#fff}
+[data-theme="alto-contraste"] .db-edit-row input{background:#000;border-color:#fff;color:#fff}
+[data-theme="alto-contraste"] footer{background:#000;border-color:#fff;color:#fff}
+[data-theme="alto-contraste"] .btn-cyan{background:#fff;color:#000;border:2px solid #fff}
+[data-theme="alto-contraste"] .btn-cyan:hover{background:#000;color:#fff}
+[data-theme="alto-contraste"] .btn-add-pool{background:#fff;color:#000}
+[data-theme="alto-contraste"] .btn-save{background:#fff;color:#000}
+[data-theme="alto-contraste"] .logo-mark{background:#fff;color:#000}
+[data-theme="alto-contraste"] .logo-mark-inner{background:#000;color:#fff}
+[data-theme="alto-contraste"] .btn-export{background:#000;border-color:#fff;color:#fff}
+[data-theme="alto-contraste"] .btn-export:hover{background:#fff;color:#000}
+[data-theme="alto-contraste"] .btn-trash{color:#fff}
+[data-theme="alto-contraste"] .btn-trash:hover{color:#f00}
+[data-theme="alto-contraste"] .schematic-label{background:#000;border-color:#fff;color:#fff}
+[data-theme="alto-contraste"] .compliance p:first-child{color:#fff}
 </style>
 </head>
 <body>
@@ -163,6 +283,8 @@ footer{background:#0f172a;border-top:1px solid #1e293b;padding:1rem 1.5rem;text-
 const S = {
   activeTab:'project',
   isQuickEditOpen:false,
+  theme:'original',
+  isDbEditorOpen:false,
   projectInfo:{
     clientName:"Construtora Horizonte S/A",
     clientPhone:"(11) 98765-4321",
@@ -263,9 +385,29 @@ const databaseMateriais={
     ]
   }
 };
+function getGalpaoTipo(){
+  const {width:w,height:h,slope:s}=S.galpaoParams;
+  if(s>35) return 'triangular';
+  if(w/h>4 && s<=20) return 'arco';
+  return 'retangular';
+}
 function getGalpaoCalc(){
-  const a=S.galpaoParams.width*S.galpaoParams.length;
-  return {totalArea:a,steelWeight:(a*24.5).toFixed(0),roofingArea:(a*1.05).toFixed(1),paintingArea:(a*24.5*2.1*0.01).toFixed(1),boltsQty:Math.ceil(a*1.8)};
+  const p=S.galpaoParams;
+  const a=p.width*p.length;
+  const h=p.height, w=p.width;
+  const tipo=getGalpaoTipo();
+  const telhadoFactor = tipo==='retangular' ? 1.05 : tipo==='arco' ? 1.57 : tipo==='triangular' ? 1.12 : 1.05;
+  const areaCobertura = a * telhadoFactor;
+  const perimetroAprox = tipo==='retangular' ? 2*(w + Math.sqrt(w*w/4 + h*h))
+    : tipo==='arco' ? Math.PI * (w/2 + h/2)
+    : tipo==='triangular' ? 2*Math.sqrt(w*w/4 + h*h)
+    : 2*(w + Math.sqrt(w*w/4 + h*h));
+  const pesoAco = tipo==='retangular' ? a*24.5 : tipo==='arco' ? a*28.0 : tipo==='triangular' ? a*22.0 : a*24.5;
+  const areaPintura = tipo==='retangular' ? perimetroAprox * p.length * 0.01
+    : tipo==='arco' ? (Math.PI * (w/2 + h/2)) * p.length * 0.01
+    : tipo==='triangular' ? (w + 2*Math.sqrt(w*w/4 + h*h)) * p.length * 0.01
+    : perimetroAprox * p.length * 0.01;
+  return {totalArea:a,steelWeight:pesoAco.toFixed(0),roofingArea:areaCobertura.toFixed(1),paintingArea:areaPintura.toFixed(1),boltsQty:Math.ceil(a*1.8),telhadoFactor};
 }
 function getSapataCalc(){
   const ra=(S.sapataParams.load/1000)/(S.sapataParams.soilCapacity*10),cs=Math.sqrt(ra),cv=S.sapataParams.length*S.sapataParams.width*S.sapataParams.height;
@@ -477,6 +619,7 @@ function processIA(){
   render();
 }
 function render(){
+  document.body.dataset.theme=S.theme;
   const agg=getAggregated(),mat=getMaterials(),costs=getCosts();
   const mix=getConcreteMix(),gc=getGalpaoCalc(),sc=getSapataCalc(),pc=getPilarCalc(),vc=getVigaCalc(),lc=getLajeCalc();
   const ec=getEstruturaCalc(),ac=getAcoCalc(),esc=getEscavacaoCalc(),co=getCoberturaCalc(),pi=getPinturaCalc(),cc=getConcretoCalc();
@@ -499,9 +642,19 @@ function render(){
         <button class="nav-btn${S.activeTab==='ia'?' active':''}" data-tab="ia">${icon('Brain')} 5. IA de Engenharia</button>
         <button class="nav-btn${S.activeTab==='arch'?' active':''}" data-tab="arch">${icon('Map')} 6. Arquitetura Recomendada</button>
         <button class="nav-btn${S.activeTab==='pdf'?' active':''}" data-tab="pdf">${icon('PDF')} 7. Memorial & PDF</button>
+        <button class="nav-btn${S.activeTab==='dbedit'?' active':''}" data-tab="dbedit">${icon('Database')} 8. Banco de Materiais</button>
       </nav>
     </div>
-    <div class="compliance"><p>ENG - JOHN Compliance</p><p>NBR 6118 / NBR 6122 / NBR 8800</p></div>
+    <div class="compliance">
+      <div class="theme-bar">
+        <button class="theme-btn${S.theme==='original'?' active':''}" data-theme-btn="original">● Original</button>
+        <button class="theme-btn${S.theme==='white'?' active':''}" data-theme-btn="white">○ White</button>
+        <button class="theme-btn${S.theme==='noturno'?' active':''}" data-theme-btn="noturno">🌙 Noturno</button>
+        <button class="theme-btn${S.theme==='alto-contraste'?' active':''}" data-theme-btn="alto-contraste">◐ Alto Contraste</button>
+      </div>
+      <p>ENG - JOHN Compliance</p>
+      <p>NBR 6118 / NBR 6122 / NBR 8800</p>
+    </div>
   </aside>
 
   <main class="main">
@@ -546,6 +699,7 @@ function render(){
       ${S.activeTab==='ia'?renderIA():''}
       ${S.activeTab==='arch'?renderArch():''}
       ${S.activeTab==='pdf'?renderPDF(agg,mat,costs):''}
+      ${S.activeTab==='dbedit'?renderDbEditor():''}
     </div>
 
     <footer>
@@ -820,29 +974,109 @@ function renderCrossRef(cross){
     </div>
   </div>`;
 }
+function galpaoSVG(tipo, w, h){
+  const viewBox="0 0 100 100";
+  const base='<rect x="8" y="85" width="84" height="3" rx="1" fill="#475569"/>';
+  if(tipo==='arco'){
+    const rx=Math.min(42,w/h*12+20),ry=Math.min(30,h/w*25+10);
+    return `<svg style="width:12rem;height:12rem;color:#06b6d4" viewBox="${viewBox}" fill="none">
+      ${base}
+      <ellipse cx="50" cy="55" rx="${rx}" ry="${ry}" stroke="#06b6d4" stroke-width="2" fill="rgba(6,182,212,0.08)"/>
+      <line x1="${50-rx}" y1="55" x2="${50-rx}" y2="85" stroke="#06b6d4" stroke-width="2"/>
+      <line x1="${50+rx}" y1="55" x2="${50+rx}" y2="85" stroke="#06b6d4" stroke-width="2"/>
+      <line x1="${50-rx}" y1="85" x2="${50+rx}" y2="85" stroke="#64748b" stroke-width="1" stroke-dasharray="2"/>
+      <text x="50" y="${55-ry-4}" text-anchor="middle" fill="#22d3ee" font-size="6">h=${h}m</text>
+      <text x="50" y="97" text-anchor="middle" fill="#64748b" font-size="5">L=${w}m</text>
+      <circle cx="${50-rx+8}" cy="47" r="1" fill="#f43f5e"/>
+      <circle cx="${50-rx+16}" cy="40" r="1" fill="#f43f5e"/>
+      <circle cx="${50+rx-8}" cy="47" r="1" fill="#f43f5e"/>
+      <circle cx="${50+rx-16}" cy="40" r="1" fill="#f43f5e"/>
+    </svg>`;
+  }
+  if(tipo==='triangular'){
+    const hwRatio=Math.min(1,Math.max(0.3,h/(w*0.6)));
+    const apexY=85-55*hwRatio, baseX1=8, baseX2=92;
+    const midX=(baseX1+baseX2)/2;
+    return `<svg style="width:12rem;height:12rem;color:#06b6d4" viewBox="${viewBox}" fill="none">
+      ${base}
+      <polygon points="${baseX1},85 ${midX},${apexY} ${baseX2},85" stroke="#06b6d4" stroke-width="2" fill="rgba(6,182,212,0.08)"/>
+      <line x1="${midX-7}" y1="${apexY+8}" x2="${midX+7}" y2="${apexY+8}" stroke="#64748b" stroke-width="1" stroke-dasharray="1"/>
+      <line x1="${midX}" y1="${apexY}" x2="${midX}" y2="85" stroke="#64748b" stroke-width="1" stroke-dasharray="2"/>
+      <text x="50" y="${apexY-3}" text-anchor="middle" fill="#22d3ee" font-size="6">h=${h}m</text>
+      <text x="50" y="97" text-anchor="middle" fill="#64748b" font-size="5">L=${w}m</text>
+      <circle cx="${midX-10}" cy="${apexY+10}" r="1.2" fill="#f43f5e"/>
+      <circle cx="${midX+10}" cy="${apexY+10}" r="1.2" fill="#f43f5e"/>
+      <circle cx="${midX-18}" cy="${apexY+20}" r="1.2" fill="#f43f5e"/>
+      <circle cx="${midX+18}" cy="${apexY+20}" r="1.2" fill="#f43f5e"/>
+    </svg>`;
+  }
+  const colH=Math.min(55,Math.max(25,80-h/w*20));
+  const roofH=colH-20;
+  const mid=50;
+  return `<svg style="width:12rem;height:12rem;color:#06b6d4" viewBox="${viewBox}" fill="none">
+    ${base}
+    <rect x="18" y="45" width="64" height="40" rx="1" fill="rgba(6,182,212,0.06)" stroke="none"/>
+    <line x1="18" y1="${colH}" x2="18" y2="85" stroke="#06b6d4" stroke-width="2"/>
+    <line x1="82" y1="${colH}" x2="82" y2="85" stroke="#06b6d4" stroke-width="2"/>
+    <line x1="18" y1="${colH}" x2="50" y2="${roofH}" stroke="#06b6d4" stroke-width="2"/>
+    <line x1="82" y1="${colH}" x2="50" y2="${roofH}" stroke="#06b6d4" stroke-width="2"/>
+    <line x1="8" y1="85" x2="92" y2="85" stroke="#64748b" stroke-width="1" stroke-dasharray="2"/>
+    <text x="50" y="${roofH-4}" text-anchor="middle" fill="#22d3ee" font-size="6">h=${h}m</text>
+    <text x="50" y="97" text-anchor="middle" fill="#64748b" font-size="5">L=${w}m</text>
+    <circle cx="28" cy="${colH-5}" r="1.2" fill="#f43f5e"/>
+    <circle cx="38" cy="${roofH+3}" r="1.2" fill="#f43f5e"/>
+    <circle cx="62" cy="${roofH+3}" r="1.2" fill="#f43f5e"/>
+    <circle cx="72" cy="${colH-5}" r="1.2" fill="#f43f5e"/>
+  </svg>`;
+}
+
+const tiposGalpao=[
+  {id:'retangular',label:'Retangular (2 Águas)',desc:'Tesoura metálica para vãos padrão com inclinação moderada'},
+  {id:'arco',label:'Arco (Circular)',desc:'Galpão em arco ideal para vãos largos com baixa inclinação'},
+  {id:'triangular',label:'Triangular (A-frame)',desc:'Estrutura íngreme em V para alta inclinação'}
+];
+
 function renderGalpao(gc){
+  const p=S.galpaoParams;
+  const tipo=getGalpaoTipo();
+  const ti=tiposGalpao.find(t=>t.id===tipo);
+  const regra=tipo==='retangular'?'inclinação 15-35% | largura/altura ≤ 4'
+    :tipo==='arco'?'inclinação ≤ 20% | largura/altura > 4'
+    :'inclinação > 35%';
   return `
 <div class="card" style="padding:1.5rem">
   <div style="border-bottom:1px solid #1e293b;padding-bottom:1rem;margin-bottom:1.5rem">
-    <h2 style="font-size:1.125rem;font-weight:700;color:#fff;display:flex;align-items:center;gap:.5rem">${icon('Warehouse')} Dimensionador Rápido de Galpão Metálico Industrial</h2>
-    <p style="font-size:.75rem;color:#94a3b8;margin-top:.25rem">Estimativa de pilares, terças, treliças (tesouras), telhas de cobertura e insumo de pintura.</p>
+    <h2 style="font-size:1.125rem;font-weight:700;color:#fff;display:flex;align-items:center;gap:.5rem">${icon('Warehouse')} Dimensionador de Galpão Metálico</h2>
+    <p style="font-size:.75rem;color:#94a3b8;margin-top:.25rem">Informe as medidas. O sistema seleciona automaticamente o tipo estrutural ideal.</p>
   </div>
   <div class="rgg">
     <div style="display:flex;flex-direction:column;gap:1rem;font-size:.75rem">
-      <div><label style="display:block;color:#94a3b8;margin-bottom:.25rem">Largura Útil do Galpão (m)</label><input class="input-field input-mono" type="number" data-gl-width value="${S.galpaoParams.width}"></div>
-      <div><label style="display:block;color:#94a3b8;margin-bottom:.25rem">Comprimento do Vão (m)</label><input class="input-field input-mono" type="number" data-gl-length value="${S.galpaoParams.length}"></div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem">
-        <div><label style="display:block;color:#94a3b8;margin-bottom:.25rem">Pé Direito (m)</label><input class="input-field input-mono" type="number" data-gl-height value="${S.galpaoParams.height}"></div>
-        <div><label style="display:block;color:#94a3b8;margin-bottom:.25rem">Inclinação Tesoura (%)</label><input class="input-field input-mono" type="number" data-gl-slope value="${S.galpaoParams.slope}"></div>
+      <div style="background:#020617;padding:.75rem;border-radius:.5rem;border:1px solid #1e293b">
+        <div style="font-size:10px;font-weight:700;color:#22d3ee;text-transform:uppercase;margin-bottom:.5rem">Parâmetros</div>
+        <div><label style="display:block;color:#94a3b8;margin-bottom:.25rem">Largura Útil (m)</label><input class="input-field input-mono" type="number" data-gl-width value="${p.width}"></div>
+        <div style="margin-top:.5rem"><label style="display:block;color:#94a3b8;margin-bottom:.25rem">Comprimento do Vão (m)</label><input class="input-field input-mono" type="number" data-gl-length value="${p.length}"></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-top:.5rem">
+          <div><label style="display:block;color:#94a3b8;margin-bottom:.25rem">Altura / Pé Direito (m)</label><input class="input-field input-mono" type="number" data-gl-height value="${p.height}"></div>
+          <div><label style="display:block;color:#94a3b8;margin-bottom:.25rem">Inclinação (%)</label><input class="input-field input-mono" type="number" data-gl-slope value="${p.slope}"></div>
+        </div>
+      </div>
+      <div style="background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.2);border-radius:.5rem;padding:.625rem .75rem;font-size:11px">
+        <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.25rem">
+          <span style="background:#06b6d4;color:#020617;font-weight:700;padding:0 .375rem;border-radius:.25rem;font-size:9px;text-transform:uppercase">${ti.label}</span>
+          <span style="color:#64748b;font-size:10px">${regra}</span>
+        </div>
+        <div style="color:#94a3b8;font-size:10px">${ti.desc}</div>
       </div>
     </div>
-    <div class="schematic-box" style="height:14rem">
-      <svg style="width:12rem;height:12rem;color:#06b6d4" viewBox="0 0 100 100" fill="none"><line x1="20" y1="80" x2="20" y2="45" stroke="#06b6d4" stroke-width="2"/><line x1="80" y1="80" x2="80" y2="45" stroke="#06b6d4" stroke-width="2"/><line x1="20" y1="45" x2="50" y2="25" stroke="#06b6d4" stroke-width="2"/><line x1="80" y1="45" x2="50" y2="25" stroke="#06b6d4" stroke-width="2"/><line x1="10" y1="80" x2="90" y2="80" stroke="#475569" stroke-width="1"/><circle cx="30" cy="38" r="1.5" fill="#f43f5e"/><circle cx="40" cy="31" r="1.5" fill="#f43f5e"/><circle cx="60" cy="31" r="1.5" fill="#f43f5e"/><circle cx="70" cy="38" r="1.5" fill="#f43f5e"/></svg>
-      <div class="schematic-label">Corte Esquemático Metálico</div>
+    <div class="schematic-box" style="height:16rem">
+      ${galpaoSVG(tipo, p.width, p.height)}
+      <div class="schematic-label">${ti.label}</div>
+      <div style="position:absolute;right:.75rem;bottom:.5rem;font-size:8px;color:#475569;font-family:'Courier New',monospace">${p.width}m × ${p.height}m</div>
     </div>
     <div style="background:#020617;padding:1.25rem;border-radius:.75rem;border:1px solid #1e293b;font-size:.75rem">
-      <span style="font-size:10px;text-transform:uppercase;font-weight:700;color:#94a3b8;display:block;margin-bottom:.75rem">Resultados da Estrutura</span>
+      <span style="font-size:10px;text-transform:uppercase;font-weight:700;color:#94a3b8;display:block;margin-bottom:.75rem">Resultados — ${ti.label}</span>
       <div id="res-galpao" style="display:flex;flex-direction:column;gap:.5rem;font-family:'Courier New',monospace">
+        <div style="display:flex;justify-content:space-between;border-bottom:1px solid #0f172a;padding-bottom:.375rem"><span style="color:#94a3b8">Área Total do Piso:</span><strong style="color:#e2e8f0">${gc.totalArea} m²</strong></div>
         <div style="display:flex;justify-content:space-between;border-bottom:1px solid #0f172a;padding-bottom:.375rem"><span style="color:#94a3b8">Peso Estimado Estrutural:</span><strong style="color:#22d3ee">${gc.steelWeight} kg</strong></div>
         <div style="display:flex;justify-content:space-between;border-bottom:1px solid #0f172a;padding-bottom:.375rem"><span style="color:#94a3b8">Área Real de Cobertura:</span><strong style="color:#e2e8f0">${gc.roofingArea} m²</strong></div>
         <div style="display:flex;justify-content:space-between;border-bottom:1px solid #0f172a;padding-bottom:.375rem"><span style="color:#94a3b8">Insumo de Pintura:</span><strong style="color:#e2e8f0">${gc.paintingArea} m²</strong></div>
@@ -1075,9 +1309,89 @@ function renderArch(){
   </div>
 </div>`;
 }
+function renderDbEditor(){
+  const cats=[
+    {key:'concreto',label:'Concreto',fields:[
+      {path:['materiais',0,'preco'],label:'Cimento (R$/sc)'},
+      {path:['materiais',1,'preco'],label:'Areia (R$/m³)'},
+      {path:['materiais',2,'preco'],label:'Brita (R$/m³)'},
+      {path:['materiais',3,'preco'],label:'Água (R$/m³)'}
+    ]},
+    {key:'aco',label:'Aço',fields:[
+      {path:['tipos',0,'preco'],label:'CA-50 (R$/kg)'},
+      {path:['tipos',1,'preco'],label:'CA-60 (R$/kg)'}
+    ]},
+    {key:'madeira',label:'Madeira',fields:[
+      {path:['tipos',0,'preco'],label:'Eucalipto Tratado (R$/m³)'},
+      {path:['tipos',1,'preco'],label:'Pinus (R$/m³)'},
+      {path:['tipos',2,'preco'],label:'Peroba Rosa (R$/m³)'},
+      {path:['tipos',3,'preco'],label:'Compensado Naval (R$/m²)'}
+    ]},
+    {key:'aluminio',label:'Alumínio',fields:[
+      {path:['tipos',0,'preco'],label:'Chapa 1/16" (R$/m²)'},
+      {path:['tipos',1,'preco'],label:'Perfil 20x40 (R$/m)'},
+      {path:['tipos',2,'preco'],label:'Esquadria (R$/m²)'}
+    ]},
+    {key:'pvc',label:'PVC',fields:[
+      {path:['tipos',0,'preco'],label:'Tubo 25mm (R$/m)'},
+      {path:['tipos',1,'preco'],label:'Tubo 100mm (R$/m)'},
+      {path:['tipos',2,'preco'],label:'Conexão 90° (R$/un)'}
+    ]},
+    {key:'vidro',label:'Vidro',fields:[
+      {path:['tipos',0,'preco'],label:'Temperado 8mm (R$/m²)'},
+      {path:['tipos',1,'preco'],label:'Liso 4mm (R$/m²)'},
+      {path:['tipos',2,'preco'],label:'Duplo Acústico (R$/m²)'}
+    ]}
+  ];
+  return `
+<div class="card" style="padding:1.5rem">
+  <div style="border-bottom:1px solid #1e293b;padding-bottom:1rem;margin-bottom:1.5rem">
+    <h2 style="font-size:1.125rem;font-weight:700;color:#fff;display:flex;align-items:center;gap:.5rem">${icon('Database')} Editor do Banco de Materiais</h2>
+    <p style="font-size:.75rem;color:#94a3b8;margin-top:.25rem">Edite os preços dos materiais. As alterações são aplicadas em tempo real nos cálculos e cruzamentos.</p>
+  </div>
+  <div class="db-edit-grid">
+    ${cats.map(c=>`
+    <div class="db-edit-card">
+      <h4>${catIcon(c.key)} ${c.label}</h4>
+      ${c.fields.map((f,i)=>{
+        const val = f.path.reduce((o,p)=>o[p],databaseMateriais[c.key]);
+        return `<div class="db-edit-row">
+          <span>${f.label}</span>
+          <input type="number" step="0.01" data-db-path="${c.key}.${f.path.join('.')}" value="${val}">
+          <span style="text-align:right;color:#34d399">R$</span>
+        </div>`;
+      }).join('')}
+    </div>`).join('')}
+  </div>
+  <div style="margin-top:1.5rem;display:flex;gap:.75rem;align-items:center">
+    <button class="btn-cyan" style="padding:.5rem 1.5rem;font-size:.75rem" data-db-save>${icon('Database')} Salvar Todas as Alterações</button>
+    <span style="font-size:10px;color:#64748b">Os dados persistem enquanto a página estiver aberta.</span>
+  </div>
+</div>`;
+}
+function catIcon(k){
+  const m={'concreto':'🏗️','aco':'🔩','madeira':'🪵','aluminio':'🪶','pvc':'🔧','vidro':'🪟'};
+  return m[k]||'📦';
+}
 function bindEvents(){
   // Nav tabs
   document.querySelectorAll('[data-tab]').forEach(b=>b.addEventListener('click',()=>{S.activeTab=b.dataset.tab;render();}));
+
+  // Theme buttons
+  document.querySelectorAll('[data-theme-btn]').forEach(b=>b.addEventListener('click',function(){S.theme=this.dataset.themeBtn;render();}));
+
+  // Database editor save
+  document.querySelectorAll('[data-db-save]').forEach(b=>b.addEventListener('click',()=>{
+    document.querySelectorAll('[data-db-path]').forEach(inp=>{
+      const path=inp.dataset.dbPath.split('.');
+      const key=path.shift();
+      let obj=databaseMateriais[key];
+      for(let i=0;i<path.length-1;i++) obj=obj[path[i]];
+      obj[path[path.length-1]]=parseFloat(inp.value)||0;
+    });
+    S.activeTab='arch';
+    render();
+  }));
 
   // Edit panel
   document.querySelectorAll('[data-edit-toggle]').forEach(b=>b.addEventListener('click',()=>{S.isQuickEditOpen=!S.isQuickEditOpen;render();}));
